@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F5F0E8;
+    --warm-beige: #EDE5D4;
+    --ivory: #FAF7F2;
+    --taupe: #C8BAA5;
+    --mocha: #8B7355;
+    --espresso: #4A3728;
+    --charcoal: #2C2825;
+    --dusty-pink: #D4B8B0;
+    --muted-sage: #A8B5A0;
+    --muted-mauve: #B8A0A8;
+    --burgundy: #6B2D3E;
+    --text-primary: #2C2825;
+    --text-secondary: #6B5D4F;
+    --text-muted: #9B8B7A;
+    --border-light: rgba(44, 40, 37, 0.08);
+    --border-medium: rgba(44, 40, 37, 0.15);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--text-primary);
+    line-height: 1.7;
+  }
+
+  .cover {
+    background: var(--espresso);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem 3rem 3rem;
+  }
+
+  .cover-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(5rem, 18vw, 10rem);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin: 3rem 0 2rem;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--taupe);
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 2rem;
+    border-top: 0.5px solid rgba(200, 186, 165, 0.3);
+  }
+
+  .cover-meta {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    line-height: 2;
+  }
+
+  .section {
+    padding: 5rem 3rem;
+    border-bottom: 0.5px solid var(--border-light);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-number {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--espresso);
+    margin-bottom: 3rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--mocha);
+  }
+
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  h3:first-of-type { margin-top: 0; }
+
+  p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    max-width: 640px;
+  }
+
+  .large-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--espresso);
+    border-left: 2px solid var(--dusty-pink);
+    padding-left: 2rem;
+    margin: 2.5rem 0;
+    max-width: 580px;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 1rem 0 2rem;
+  }
+
+  .pill {
+    font-size: 12px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+  }
+
+  .pill-cream { background: var(--warm-beige); color: var(--espresso); }
+  .pill-dark { background: var(--espresso); color: var(--cream); }
+  .pill-sage { background: #E0E6DD; color: #4A5C44; }
+  .pill-pink { background: #EDD8D4; color: #6B3830; }
+  .pill-outline { background: transparent; color: var(--text-secondary); border: 0.5px solid var(--border-medium); }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1.5rem 0;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .card {
+    background: var(--cream);
+    border: 0.5px solid var(--border-light);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .card-dark {
+    background: var(--espresso);
+    border: none;
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .card-dark h3, .card-dark .card-label { color: var(--taupe); }
+  .card-dark p { color: var(--warm-beige); max-width: none; }
+
+  .card-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--espresso);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: none;
+    margin: 0;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--border-light);
+    margin: 2rem 0;
+  }
+
+  .emotion-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .emotion-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .emotion-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    padding: 10px 20px;
+    border-radius: 2px;
+  }
+
+  .emotion-word.panic { background: #F0E0DC; color: #7A3028; }
+  .emotion-word.relief { background: #DDE8D8; color: #3A5C34; }
+  .emotion-word.ready { background: var(--warm-beige); color: var(--espresso); }
+  .emotion-word.confident { background: var(--espresso); color: var(--cream); }
+  .emotion-word.complimented { background: var(--dusty-pink); color: #5C2830; }
+
+  .arrow {
+    font-size: 14px;
+    color: var(--taupe);
+    padding: 0 8px;
+  }
+
+  .manifesto-section {
+    background: var(--espresso);
+    color: var(--cream);
+  }
+
+  .manifesto-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--cream);
+    max-width: 580px;
+  }
+
+  .manifesto-text em {
+    font-style: italic;
+    color: var(--dusty-pink);
+  }
+
+  .color-swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .swatch-block {
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    min-height: 90px;
+  }
+
+  .swatch-name {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  .swatch-hex {
+    font-size: 10px;
+    opacity: 0.7;
+  }
+
+  .persona-card {
+    border-left: 3px solid var(--dusty-pink);
+    padding-left: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .persona-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--espresso);
+    margin-bottom: 0.25rem;
+  }
+
+  .persona-tag {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 8px 16px;
+    margin-top: 1rem;
+  }
+
+  .detail-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding-top: 2px;
+  }
+
+  .detail-value {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .voice-example {
+    background: var(--cream);
+    border-left: 2px solid var(--taupe);
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .voice-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .voice-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--espresso);
+    line-height: 1.5;
+    max-width: none;
+    margin: 0;
+  }
+
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .do-block {
+    background: #EBF0E8;
+    border-radius: 4px;
+    padding: 1.25rem;
+  }
+
+  .dont-block {
+    background: #F0E8E8;
+    border-radius: 4px;
+    padding: 1.25rem;
+  }
+
+  .do-block .block-label { color: #3A5C34; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; display: block; font-weight: 500; }
+  .dont-block .block-label { color: #7A3028; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; display: block; font-weight: 500; }
+
+  .do-block li, .dont-block li {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-left: 1rem;
+    color: var(--text-secondary);
+    max-width: none;
+  }
+
+  .naming-card {
+    border: 0.5px solid var(--border-medium);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .naming-header {
+    background: var(--warm-beige);
+    padding: 1rem 1.5rem;
+  }
+
+  .naming-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--espresso);
+  }
+
+  .naming-concept {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .naming-body {
+    padding: 1.25rem 1.5rem;
+    background: white;
+  }
+
+  .name-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 0.75rem;
+  }
+
+  .framework-item {
+    border-bottom: 0.5px solid var(--border-light);
+    padding: 1.25rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .framework-q {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .framework-a {
+    font-size: 14px;
+    color: var(--espresso);
+    font-weight: 500;
+  }
+
+  .filter-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 1rem 0;
+    border-bottom: 0.5px solid var(--border-light);
+  }
+
+  .check-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--taupe);
+    line-height: 1;
+    min-width: 24px;
+  }
+
+  .check-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    max-width: none;
+    margin: 0;
+    padding-top: 2px;
+  }
+
+  .content-pillar {
+    background: white;
+    border: 0.5px solid var(--border-light);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pillar-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--espresso);
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: none;
+    margin: 0;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 0.75rem 0;
+    border-bottom: 0.5px solid var(--border-light);
+    cursor: pointer;
+  }
+
+  .toc-num {
+    font-size: 11px;
+    color: var(--text-muted);
+    min-width: 24px;
+  }
+
+  .toc-title {
+    font-size: 15px;
+    color: var(--text-secondary);
+    flex: 1;
+  }
+
+  .toc-arrow {
+    font-size: 12px;
+    color: var(--taupe);
+  }
+
+  .positioning-block {
+    border-left: 3px solid var(--espresso);
+    padding: 1.5rem 2rem;
+    background: var(--cream);
+    border-radius: 0 4px 4px 0;
+    margin: 1.5rem 0;
+  }
+
+  .pos-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mocha);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .pos-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--espresso);
+    line-height: 1.5;
+    max-width: none;
+    margin: 0 0 1rem;
+  }
+
+  .pos-text:last-child { margin: 0; }
+
+  .gap-row {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 0.5px solid var(--border-light);
+  }
+
+  .gap-left {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: right;
+    font-style: italic;
+  }
+
+  .gap-arrow-mid {
+    text-align: center;
+    color: var(--taupe);
+    font-size: 16px;
+  }
+
+  .gap-right {
+    font-size: 14px;
+    color: var(--espresso);
+    font-weight: 500;
+  }
+
+  .product-narrative {
+    border-top: 0.5px solid var(--border-light);
+    padding: 2rem 0;
+  }
+
+  .product-narrative:first-of-type { border-top: none; padding-top: 0; }
+
+  .pn-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--espresso);
+    margin-bottom: 1rem;
+  }
+
+  .pn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .pn-attr {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  .pn-val {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .pn-copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--espresso);
+    border-left: 2px solid var(--dusty-pink);
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .two-col, .three-col, .do-dont, .framework-item, .pn-grid { grid-template-columns: 1fr; }
+    .cover { padding: 2.5rem 1.5rem; }
+    .section { padding: 3rem 1.5rem; }
+    .emotion-flow { gap: 4px; }
+    .cover-title { font-size: 4.5rem; }
+  }
+</style>
+
+<div class="cover">
+  <div>
+    <span class="cover-eyebrow">Brand Foundation Document — Confidential</span>
+  </div>
+  <div>
+    <div class="cover-title">SECERA</div>
+    <p class="cover-subtitle">Effortless Occasion Wear.<br>The complete brand foundation for Indonesia's #1 instant selendang brand — and the occasion system it is becoming.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <div>Version 1.0</div>
+      <div>Brand Foundation · Strategic Document</div>
+      <div>For Design, Copy, Content & Product Decisions</div>
+    </div>
+    <div class="cover-meta" style="text-align:right;">
+      <div>13 Sections</div>
+      <div>Complete System</div>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="section" style="background: var(--warm-beige);">
+  <span class="section-number">Index</span>
+  <div class="section-title">Contents</div>
+  <div>
+    <div class="toc-item"><span class="toc-num">01</span><span class="toc-title">Brand Essence</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">02</span><span class="toc-title">Positioning</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">03</span><span class="toc-title">Audience & Persona</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">04</span><span class="toc-title">Product & Material Narrative</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">05</span><span class="toc-title">Brand Story</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">06</span><span class="toc-title">Manifesto</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">07</span><span class="toc-title">Visual System</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">08</span><span class="toc-title">Tone of Voice</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">09</span><span class="toc-title">Content Strategy</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">10</span><span class="toc-title">Competitive Gap</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">11</span><span class="toc-title">Naming System</span><span class="toc-arrow">↓</span></div>
+    <div class="toc-item"><span class="toc-num">12</span><span class="toc-title">Design Decision Framework</span><span class="toc-arrow">↓</span></div>
+  </div>
+</div>
+
+<!-- SECTION 01: BRAND ESSENCE -->
+<div class="section">
+  <span class="section-number">01</span>
+  <div class="section-title">Brand <em>Essence</em></div>
+
+  <h3>Core Idea</h3>
+  <div class="large-quote">Tampil siap bukan soal waktu yang panjang. Tapi soal pilihan yang tepat.</div>
+
+  <p>SECERA hadir dari satu keyakinan sederhana: perempuan modern tidak kekurangan selera — mereka kekurangan waktu. SECERA adalah jawabannya. Bukan jalan pintas. Tapi sistem cerdas yang membuat tampil polished terasa alami, bukan melelahkan.</p>
+
+  <h3>Brand Philosophy</h3>
+  <div class="two-col">
+    <div class="card">
+      <span class="card-label">Keyakinan Inti</span>
+      <div class="card-value">Elegance is a decision, not a process.</div>
+      <p class="card-desc">Tampil anggun bukan soal berapa lama waktu yang dihabiskan. Tapi soal apakah kamu memiliki alat yang tepat di tangan yang tepat.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Filosofi Produk</span>
+      <div class="card-value">Designed for the real moment.</div>
+      <p class="card-desc">SECERA tidak dirancang untuk runway atau lookbook yang sempurna. Dirancang untuk Selasa pagi, grup chat bridesmaid malam ini, dan kondangan besok yang baru diingat sekarang.</p>
+    </div>
+  </div>
+
+  <h3>Emotional Territory</h3>
+  <div class="emotion-flow">
+    <div class="emotion-step"><div class="emotion-word panic">Panik</div></div>
+    <div class="arrow">→</div>
+    <div class="emotion-step"><div class="emotion-word relief">Lega</div></div>
+    <div class="arrow">→</div>
+    <div class="emotion-step"><div class="emotion-word ready">Siap</div></div>
+    <div class="arrow">→</div>
+    <div class="emotion-step"><div class="emotion-word confident">Percaya Diri</div></div>
+    <div class="arrow">→</div>
+    <div class="emotion-step"><div class="emotion-word complimented">Dipuji</div></div>
+  </div>
+  <p>Ini adalah perjalanan emosional yang SECERA tempuh bersama konsumennya di setiap pakai. Dari "aduh, besok ada acara" hingga "kamu pakai apa tadi? bagus banget."</p>
+
+  <h3>Cultural Relevance</h3>
+  <p>Perempuan Indonesia memiliki kalender sosial yang padat: kondangan hampir setiap akhir pekan, bridesmaid untuk sahabat, arisan keluarga besar, dinner kantor, acara wisuda, dan puluhan momen antara. Masing-masing membutuhkan outfit yang berbeda — tapi waktu dan energi untuk menyiapkannya tidak selalu ada. SECERA mengerti konteks ini secara mendalam. Bukan sebagai pengamat luar, tapi sebagai bagian dari kehidupan itu sendiri.</p>
+
+  <h3>Yang SECERA Yakini</h3>
+  <div class="pill-group">
+    <span class="pill pill-cream">Kesiapan adalah bentuk self-respect</span>
+    <span class="pill pill-cream">Praktis bisa terlihat premium</span>
+    <span class="pill pill-cream">Setiap perempuan berhak tampil niat tanpa drama</span>
+    <span class="pill pill-cream">Momen special layak mendapat pakaian yang setara</span>
+    <span class="pill pill-cream">Occasion system lebih powerful dari single item</span>
+  </div>
+
+  <h3>Yang SECERA Tolak</h3>
+  <div class="pill-group">
+    <span class="pill pill-outline">Styling yang ribet demi terlihat "beneran usaha"</span>
+    <span class="pill pill-outline">Kesan bahwa polished = mahal</span>
+    <span class="pill pill-outline">Fast fashion yang tidak punya nilai</span>
+    <span class="pill pill-outline">Estetika bridal murahan yang tidak timeless</span>
+    <span class="pill pill-outline">Bahasa jualan yang agresif dan tidak bermartabat</span>
+  </div>
+
+  <h3>Peran SECERA dalam Hidup Konsumennya</h3>
+  <p>SECERA bukan sekadar tempat membeli baju. SECERA adalah sistem ketenangan sebelum acara. Seperti memiliki teman yang tahu persis apa yang harus dipakai — dan sudah menyiapkannya untukmu.</p>
+
+  <h3>Perasaan Utama Setelah Memakai SECERA</h3>
+  <div class="large-quote">"Aku nggak perlu banyak usaha, tapi terlihat seperti sudah sangat menyiapkan."</div>
+</div>
+
+<!-- SECTION 02: POSITIONING -->
+<div class="section" style="background: var(--cream);">
+  <span class="section-number">02</span>
+  <div class="section-title"><em>Positioning</em></div>
+
+  <div class="positioning-block">
+    <span class="pos-label">For</span>
+    <p class="pos-text">Perempuan urban Indonesia usia 23–35 tahun, aktif secara sosial, yang menghadiri kondangan, bridesmaid event, family gathering, dinner kantor, dan special occasions — di Jakarta, Surabaya, Bandung, dan Bali.</p>
+    <span class="pos-label">Who</span>
+    <p class="pos-text">Ingin tampil polished, elevated, dan standout, tetapi tidak punya waktu, energi, atau appetite untuk proses styling yang panjang dan membebani.</p>
+    <span class="pos-label">SECERA Is</span>
+    <p class="pos-text">Indonesia's Effortless Occasion Wear Brand — pencipta kategori selendang instant, dan sedang membangun ekosistem occasion wear yang paling intuitif di pasar lokal.</p>
+    <span class="pos-label">That</span>
+    <p class="pos-text">Membantu perempuan tampil event-ready dalam waktu singkat, dengan produk yang dirancang sebagai sistem: instant, modular, flattering, camera-friendly, dan premium-looking di semua price point.</p>
+    <span class="pos-label">Because</span>
+    <p class="pos-text">SECERA adalah brand yang pertama kali mendefinisikan dan memimpin kategori selendang instant di Indonesia, dan terus membangun occasion system yang tidak dimiliki brand lain.</p>
+  </div>
+
+  <h3>Strategic Point of View</h3>
+  <p>Kompetitor baru masuk dengan harga lebih murah karena mereka hanya melihat produknya. SECERA harus memastikan konsumen melihat lebih dari itu — mereka harus melihat sistemnya, ceritanya, dan identitasnya. Ketika brand lain berkompetisi di harga, SECERA berkompetisi di kepercayaan dan keterikatan.</p>
+
+  <div class="large-quote">Brand yang memiliki kategori tidak harus paling murah. Mereka harus paling dipercaya.</div>
+
+  <h3>Market Role</h3>
+  <div class="three-col">
+    <div class="card">
+      <span class="card-label">Category Creator</span>
+      <div class="card-value">Selendang Instant</div>
+      <p class="card-desc">SECERA yang pertama mendefinisikan ini. Identitas ini harus dikunci dan dilindungi secara aktif.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Ecosystem Builder</span>
+      <div class="card-value">Occasion System</div>
+      <p class="card-desc">Dari selendang ke multiway pieces ke occasion sets. Satu sistem untuk semua momen penting.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Cultural Anchor</span>
+      <div class="card-value">Urban Occasion Wear</div>
+      <p class="card-desc">SECERA relevan untuk kondangan, kantor, dan dinner — bukan hanya satu konteks.</p>
+    </div>
+  </div>
+
+  <h3>Brand Guardrails</h3>
+  <div class="do-dont">
+    <div class="do-block">
+      <span class="block-label">✓ SECERA Boleh</span>
+      <ul>
+        <li>Terasa practical, tapi tidak boleh terlihat basic</li>
+        <li>Terasa premium, tapi tidak boleh terasa dingin</li>
+        <li>Terasa relatable, tapi tidak boleh terlihat mass-market</li>
+        <li>Mengikuti kebutuhan event, tapi tidak terlalu trend-driven</li>
+        <li>Affordable, tapi selalu terasa worth it</li>
+        <li>Modern, tapi tetap relevan secara kultural</li>
+      </ul>
+    </div>
+    <div class="dont-block">
+      <span class="block-label">✗ SECERA Tidak Boleh</span>
+      <ul>
+        <li>Berkompetisi di harga dengan brand murah baru</li>
+        <li>Terlihat seperti brand marketplace generik</li>
+        <li>Menggunakan bahasa diskon, viral, atau agresif</li>
+        <li>Terlalu bridal atau terlalu casual</li>
+        <li>Kehilangan rasa calm confidence-nya</li>
+        <li>Menjadi brand fashion biasa tanpa positioning jelas</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 03: AUDIENCE -->
+<div class="section">
+  <span class="section-number">03</span>
+  <div class="section-title">Audience & <em>Persona</em></div>
+
+  <p>Target audience SECERA adalah perempuan yang tahu apa yang dia inginkan — tapi waktunya tidak selalu mengizinkan. Mereka bukan pemula dalam urusan penampilan. Mereka adalah perempuan urban yang aktif, sadar estetika, dan sudah terbiasa dengan standar visual yang tinggi dari media sosial dan lingkungan sosialnya.</p>
+
+  <hr class="divider">
+
+  <div class="persona-card">
+    <div class="persona-name">The Last-Minute Woman</div>
+    <span class="persona-tag">Persona A · Hero Audience</span>
+    <div class="detail-grid">
+      <span class="detail-label">Umur</span>
+      <span class="detail-value">24–32 tahun</span>
+      <span class="detail-label">Lifestyle</span>
+      <span class="detail-value">Karier aktif, sosial dinamis, kalender penuh. Sering tahu ada acara H-1 atau bahkan H-0.</span>
+      <span class="detail-label">Pain Point</span>
+      <span class="detail-value">"Aduh besok kondangan. Aku pakai apa?" — ini bukan pengecualian, ini rutinitas mingguan.</span>
+      <span class="detail-label">Buying Trigger</span>
+      <span class="detail-value">Kecepatan pengiriman, kemudahan styling, dan foto produk yang menunjukkan hasil akhir secara langsung.</span>
+      <span class="detail-label">Emotional Need</span>
+      <span class="detail-value">Ingin terlihat seperti sudah menyiapkan — tanpa harus benar-benar menyiapkan terlalu lama.</span>
+      <span class="detail-label">Visual Preference</span>
+      <span class="detail-value">Clean, polished, camera-friendly. Bukan terlalu edgy, bukan terlalu safe.</span>
+      <span class="detail-label">Produk Terbaik</span>
+      <span class="detail-value">Selendang instant, Occasion Set yang sudah terkoordinasi.</span>
+      <span class="detail-label">Content Hook</span>
+      <span class="detail-value">"Besok kondangan, belum tau mau pakai apa." — Lalu SECERA menyelesaikannya dalam satu video.</span>
+    </div>
+  </div>
+
+  <div class="persona-card" style="border-left-color: var(--muted-sage);">
+    <div class="persona-name">The Bridesmaid Friend</div>
+    <span class="persona-tag">Persona B · Group Purchase Driver</span>
+    <div class="detail-grid">
+      <span class="detail-label">Umur</span>
+      <span class="detail-value">25–33 tahun</span>
+      <span class="detail-label">Lifestyle</span>
+      <span class="detail-value">Di usia ketika banyak sahabat menikah. Menjadi bridesmaid 3–6 kali setahun adalah hal normal.</span>
+      <span class="detail-label">Pain Point</span>
+      <span class="detail-value">Koordinasi warna yang sulit, anggaran beragam di satu grup, dan kesulitan tampil kompak tanpa seragam yang kaku.</span>
+      <span class="detail-label">Buying Trigger</span>
+      <span class="detail-value">Tersedia dalam berbagai warna satu set, mudah diorder dalam jumlah, dan foto yang menunjukkan group coordination yang indah.</span>
+      <span class="detail-label">Emotional Need</span>
+      <span class="detail-value">Ingin semua terlihat cantik, kompak, dan memorable — tanpa drama koordinasi yang melelahkan.</span>
+      <span class="detail-label">Visual Preference</span>
+      <span class="detail-value">Feminine, coordinated, occasion-appropriate. Soft tones yang fotogenik.</span>
+      <span class="detail-label">Produk Terbaik</span>
+      <span class="detail-value">Bridesmaid Set, Selendang instant dalam family of colors.</span>
+      <span class="detail-label">Content Hook</span>
+      <span class="detail-value">"Bridesmaid set yang bikin semua cantik, nggak ada yang keliatan dipaksain."</span>
+    </div>
+  </div>
+
+  <div class="persona-card" style="border-left-color: var(--muted-mauve);">
+    <div class="persona-name">The Polished Professional</div>
+    <span class="persona-tag">Persona C · Repeat Buyer</span>
+    <div class="detail-grid">
+      <span class="detail-label">Umur</span>
+      <span class="detail-value">27–35 tahun</span>
+      <span class="detail-label">Lifestyle</span>
+      <span class="detail-value">Mid-senior career. Sering hadir di dinner kantor, event industri, formal gathering, atau pertemuan klien.</span>
+      <span class="detail-label">Pain Point</span>
+      <span class="detail-value">Batas antara professional dan overdressed sangat tipis. Butuh outfit yang terlihat niat tapi tidak berlebihan.</span>
+      <span class="detail-label">Buying Trigger</span>
+      <span class="detail-value">Versatility — satu produk yang bisa dipakai ke kantor, dinner, dan acara keluarga. Kualitas yang konsisten.</span>
+      <span class="detail-label">Emotional Need</span>
+      <span class="detail-value">Confidence. Ingin masuk ke ruangan dengan rasa siap, bukan rasa ragu dengan pilihan outfitnya.</span>
+      <span class="detail-label">Visual Preference</span>
+      <span class="detail-value">Structured, elevated, minimal. Warna netral yang versatile. Tidak terlalu muda, tidak terlalu konservatif.</span>
+      <span class="detail-label">Produk Terbaik</span>
+      <span class="detail-value">Multiway styling pieces, Occasion Sets dengan siluet yang clean.</span>
+      <span class="detail-label">Content Hook</span>
+      <span class="detail-value">"Satu SECERA, tiga cara pakai. Office → dinner → weekend."</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 04: PRODUCT NARRATIVE -->
+<div class="section" style="background: var(--cream);">
+  <span class="section-number">04</span>
+  <div class="section-title">Product & Material <em>Narrative</em></div>
+  <p>Setiap elemen SECERA membawa makna — bukan hanya fungsi. Narasi berikut digunakan untuk brand book, product page, packaging insert, dan campaign copy.</p>
+
+  <div class="product-narrative">
+    <div class="pn-name">01 — Selendang Instant</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Ringan di tangan, langsung jatuh dengan benar di bahu. Tidak ada yang perlu disesuaikan.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Mengubah panik menjadi lega dalam hitungan detik. Ini adalah produk ketenangan.</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">Bukti bahwa kesiapan bisa dirancang. SECERA merancang "tinggal pakai" menjadi sebuah sistem.</span></div>
+    </div>
+    <div class="pn-copy">"Tidak ada yang perlu kamu atur. Tinggal pakai — dan kamu sudah terlihat siap."</div>
+  </div>
+
+  <div class="product-narrative">
+    <div class="pn-name">02 — Soft Drape Fabric</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Jatuh dengan berat yang tepat. Tidak terlalu kaku, tidak terlalu melekat. Bergerak seperti seharusnya.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Memberikan rasa anggun yang tidak perlu diusahakan. Kain yang bekerja untukmu.</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">Drape yang baik adalah hasil keputusan desain yang serius — bukan kebetulan.</span></div>
+    </div>
+    <div class="pn-copy">"Kain yang tahu caranya jatuh dengan benar. Kamu tinggal memakainya."</div>
+  </div>
+
+  <div class="product-narrative">
+    <div class="pn-name">03 — Multiway Silhouette</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Satu potongan, namun terasa seperti beberapa pilihan. Fleksibel tanpa terasa kompromi.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Menghilangkan anxiety pilihan. Satu produk menjawab lebih dari satu momen.</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">Versatility bukan gimmick. Ini adalah filosofi desain SECERA: satu keputusan, banyak kesempatan.</span></div>
+    </div>
+    <div class="pn-copy">"Satu SECERA untuk kondangan Sabtu, dinner Minggu, dan kantor Senin."</div>
+  </div>
+
+  <div class="product-narrative">
+    <div class="pn-name">04 — Camera-Friendly Texture</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Di layar maupun di depan kaca, tekstur ini merespons cahaya dengan cara yang benar.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Keyakinan bahwa foto akan bagus. Tidak ada lagi "kok di foto beda."</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">SECERA dirancang untuk kehidupan visual — dunia di mana foto dan video sama pentingnya dengan momen itu sendiri.</span></div>
+    </div>
+    <div class="pn-copy">"Terlihat baik di cermin. Terlihat lebih baik di foto."</div>
+  </div>
+
+  <div class="product-narrative">
+    <div class="pn-name">05 — Coordinated Occasion Set</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Dipakai sekaligus terasa seperti keputusan yang sudah dipikirkan matang oleh seseorang yang tahu fashion.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Menghilangkan satu keputusan terbesar: "atas dan bawah apa yang cocok?"</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">Kurasi adalah layanan. SECERA memilihkan kombinasi yang tepat — kamu tinggal memakainya.</span></div>
+    </div>
+    <div class="pn-copy">"Sudah dipilihkan. Sudah dipadukan. Tinggal dipakai."</div>
+  </div>
+
+  <div class="product-narrative">
+    <div class="pn-name">06 — Occasion-Ready Color Palette</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Warna yang tidak pernah salah tempat: di kondangan, di kantor, di foto keluarga.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Ketenangan sebelum acara. Warna yang tidak akan membuat kamu menyesal di foto.</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">Palet SECERA dipilih untuk bertahan lama, bukan untuk satu musim atau satu tren.</span></div>
+    </div>
+    <div class="pn-copy">"Warna yang selalu tepat waktu — dan tidak pernah ketinggalan zaman."</div>
+  </div>
+
+  <div class="product-narrative">
+    <div class="pn-name">07 — Flattering Cut</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Dipakai terasa nyaman. Dilihat terasa proporsional. Tidak ada yang perlu ditarik atau disesuaikan sepanjang hari.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Confidence yang datang dari dalam — karena pakaiannya memang mendukung, bukan melawan.</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">Potongan yang baik adalah investasi silent. Tidak terlihat, tapi sangat terasa.</span></div>
+    </div>
+    <div class="pn-copy">"Tidak ada yang perlu kamu sembunyikan. SECERA memang dirancang begitu."</div>
+  </div>
+
+  <div class="product-narrative">
+    <div class="pn-name">08 — Modular Occasion System</div>
+    <div class="pn-grid">
+      <div><span class="pn-attr">Sensory Impression</span><span class="pn-val">Setiap produk SECERA bisa berdiri sendiri — dan menjadi lebih kuat berpasangan dengan produk lain.</span></div>
+      <div><span class="pn-attr">Emotional Role</span><span class="pn-val">Dari anxiety mix-and-match menjadi sistem yang sudah terpikirkan.</span></div>
+      <div><span class="pn-attr">Brand Meaning</span><span class="pn-val">SECERA bukan koleksi produk terpisah. Ini adalah wardrobe occasion yang bisa dibangun seiring waktu.</span></div>
+    </div>
+    <div class="pn-copy">"Mulai dari satu selendang. Bangun seluruh occasion wardrobe-mu."</div>
+  </div>
+</div>
+
+<!-- SECTION 05: BRAND STORY -->
+<div class="section">
+  <span class="section-number">05</span>
+  <div class="section-title">Brand <em>Story</em></div>
+
+  <div class="large-quote">Ada satu momen yang hampir setiap perempuan tahu. Malam sebelum acara. Lemari terbuka. Belum ada yang terasa pas.</div>
+
+  <p>Bukan karena lemarinya kosong. Bukan karena ia tidak tahu cara berpakaian. Tapi karena tidak ada satu pun yang sudah siap — untuk momen itu, hari itu, dengan waktu yang tersisa malam ini.</p>
+
+  <p>SECERA lahir dari pemahaman tentang momen itu. Bukan untuk mengisi lemari dengan lebih banyak pilihan. Tapi untuk memberikan jawaban yang langsung, yang sudah siap, yang tidak memerlukan pikiran lebih.</p>
+
+  <p>Kami memulai dengan selendang — bukan karena itu produk yang mudah, tapi karena itu adalah satu hal yang paling sering membuat perempuan berhenti di depan cermin dan bertanya: ini sudah cukup? Kami merancangnya menjadi instant. Tinggal pakai. Dan terlihat seperti sudah dipikirkan.</p>
+
+  <p>Ternyata, itulah yang dibutuhkan lebih dari sekadar produk yang bagus. Perempuan Indonesia tidak butuh lebih banyak pilihan. Mereka butuh pilihan yang sudah tepat.</p>
+
+  <p>Hari ini SECERA adalah brand selendang instant #1 di Indonesia. Tapi itu bukan titik akhir — itu adalah titik awal dari sesuatu yang lebih besar: ekosistem occasion wear yang menjawab setiap momen penting, dari kondangan hingga dinner kantor, dari bridesmaid call hingga family gathering.</p>
+
+  <div class="large-quote">Karena perempuan yang tampil siap bukan perempuan yang tidak punya masalah. Ia adalah perempuan yang sudah memiliki sistemnya.</div>
+
+  <p>SECERA adalah sistem itu.</p>
+</div>
+
+<!-- SECTION 06: MANIFESTO -->
+<div class="section manifesto-section">
+  <span class="section-number" style="color: var(--taupe);">06</span>
+  <div class="section-title" style="color: var(--cream);">Manifesto</div>
+
+  <div class="manifesto-text">
+    Ada perempuan yang selalu terlihat siap.<br><br>
+    Bukan karena ia punya lebih banyak waktu.<br>
+    Bukan karena ia tidak pernah bingung.<br><br>
+    Tapi karena ia tahu apa yang ia butuhkan —<br>
+    dan apa yang ia butuhkan sudah ada, sudah siap, tinggal dipakai.<br><br>
+    <em>Elegance seharusnya tidak membutuhkan kepanikan.</em><br>
+    <em>Tampil siap seharusnya terasa mudah.</em><br>
+    <em>Momen istimewa layak mendapat persiapan yang tenang.</em><br><br>
+    Kami percaya bahwa polished bukan privilege waktu.<br>
+    Kami percaya bahwa praktis bisa terlihat premium.<br>
+    Kami percaya bahwa satu pilihan yang tepat mengalahkan sepuluh pilihan yang salah.<br><br>
+    SECERA bukan sekadar apa yang kamu pakai ke acara.<br>
+    SECERA adalah rasa siap itu sendiri.<br><br>
+    <em>Tinggal pakai. Langsung terlihat niat.</em>
+  </div>
+</div>
+
+<!-- SECTION 07: VISUAL SYSTEM -->
+<div class="section">
+  <span class="section-number">07</span>
+  <div class="section-title">Visual <em>System</em></div>
+
+  <h3>A. Color System</h3>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin: 1.5rem 0;">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FAF7F2;"><span class="swatch-name" style="color:#2C2825;">Ivory</span><span class="swatch-hex" style="color:#8B7355;">#FAF7F2</span></div>
+      <div class="swatch-block" style="background:#F5F0E8;"><span class="swatch-name" style="color:#2C2825;">Cream</span><span class="swatch-hex" style="color:#8B7355;">#F5F0E8</span></div>
+      <div class="swatch-block" style="background:#EDE5D4;"><span class="swatch-name" style="color:#2C2825;">Warm Beige</span><span class="swatch-hex" style="color:#8B7355;">#EDE5D4</span></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#D4B8B0;"><span class="swatch-name" style="color:#4A3728;">Dusty Pink</span><span class="swatch-hex" style="color:#6B2D3E;">#D4B8B0</span></div>
+      <div class="swatch-block" style="background:#A8B5A0;"><span class="swatch-name" style="color:#2C2825;">Muted Sage</span><span class="swatch-hex" style="color:#3A5C34;">#A8B5A0</span></div>
+      <div class="swatch-block" style="background:#B8A0A8;"><span class="swatch-name" style="color:#2C2825;">Muted Mauve</span><span class="swatch-hex" style="color:#4A1528;">#B8A0A8</span></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#8B7355; min-height:60px;"><span class="swatch-name" style="color:#FAF7F2;">Mocha</span><span class="swatch-hex" style="color:#EDE5D4;">#8B7355</span></div>
+      <div class="swatch-block" style="background:#4A3728; min-height:60px;"><span class="swatch-name" style="color:#FAF7F2;">Espresso</span><span class="swatch-hex" style="color:#C8BAA5;">#4A3728</span></div>
+      <div class="swatch-block" style="background:#6B2D3E; min-height:60px;"><span class="swatch-name" style="color:#FAF7F2;">Deep Burgundy</span><span class="swatch-hex" style="color:#D4B8B0;">#6B2D3E</span></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3>Kelompok Warna & Maknanya</h3>
+      <div class="card">
+        <span class="card-label">Primary — Calm Foundation</span>
+        <p class="card-desc">Ivory, Cream, Warm Beige. Dasar visual yang tenang dan premium. Digunakan untuk background, packaging, dan canvas utama semua komunikasi SECERA.</p>
+      </div>
+      <div class="card" style="margin-top: 8px;">
+        <span class="card-label">Secondary — Feminine Depth</span>
+        <p class="card-desc">Dusty Pink, Muted Sage, Muted Mauve. Warna produk dan aksen yang memberi dimensi tanpa berteriak. Satu secondary color cukup dalam satu komposisi.</p>
+      </div>
+      <div class="card" style="margin-top: 8px;">
+        <span class="card-label">Accent — Grounding Force</span>
+        <p class="card-desc">Mocha, Espresso, Deep Burgundy. Digunakan untuk tipografi, border, detail, dan momen yang memerlukan kedalaman visual dan otoritas.</p>
+      </div>
+    </div>
+    <div>
+      <h3>Warna yang Harus Dihindari</h3>
+      <div class="dont-block" style="background: #F5ECEC;">
+        <ul style="list-style: none; margin: 0; padding: 0;">
+          <li style="font-size:13px; color: var(--text-secondary); padding: 6px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06);">Warna neon atau terlalu saturated</li>
+          <li style="font-size:13px; color: var(--text-secondary); padding: 6px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06);">Gold metalik yang terlalu mencolok</li>
+          <li style="font-size:13px; color: var(--text-secondary); padding: 6px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06);">Pink bubblegum atau terlalu sweet</li>
+          <li style="font-size:13px; color: var(--text-secondary); padding: 6px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06);">Palet bridal catalog yang generik</li>
+          <li style="font-size:13px; color: var(--text-secondary); padding: 6px 0; border-bottom: 0.5px solid rgba(0,0,0,0.06);">Warna marketplace yang terlalu ramai</li>
+          <li style="font-size:13px; color: var(--text-secondary); padding: 6px 0;">Pure black atau pure white yang dingin</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3>B. Typography</h3>
+  <div class="two-col">
+    <div class="card">
+      <span class="card-label">Display / Headline</span>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--espresso); line-height: 1.2; margin-bottom: 0.5rem;">Modern Serif</div>
+      <p class="card-desc">Cormorant Garamond atau setara. Berat 300–400. Italic untuk momen editorial. Tidak pernah bold. Spasi huruf sedikit rapat di ukuran besar (-0.02em). Headline utama selalu sentence case, tidak pernah all caps.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Body / UI</span>
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 400; color: var(--espresso); line-height: 1.6; margin-bottom: 0.5rem;">Clean Sans-Serif</div>
+      <p class="card-desc">DM Sans, Instrument Sans, atau setara. Berat 300–400. Spasi lega (line-height min 1.7). Tidak pernah bold berlebihan. Digunakan untuk semua teks informasi, deskripsi produk, dan UI elemen.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 8px;">
+    <span class="card-label">Hierarchy & Rules</span>
+    <p class="card-desc">H1: Serif 48–80px, weight 300. H2: Serif 28–36px, weight 300. H3: Sans 10px, weight 500, letter-spacing 0.25em, all caps (label only). Body: Sans 15–16px, weight 400. Caption: Sans 12px, weight 400. Hindari font dekoratif, script, atau terlalu ornamental. Hindari font marketplace seperti Nunito atau Poppins yang terlalu bulat.</p>
+  </div>
+
+  <hr class="divider">
+  <h3>C. Layout & Composition</h3>
+  <div class="three-col">
+    <div class="card">
+      <span class="card-label">Grid System</span>
+      <p class="card-desc">12-column grid untuk web dan campaign. 3–4 column untuk social. Margin generous di semua sisi. Tidak pernah edge-to-edge kecuali untuk full-bleed foto.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Negative Space</span>
+      <p class="card-desc">White space adalah elemen desain, bukan area kosong. Semakin premium sebuah komunikasi, semakin banyak ruang yang tersisa. Jangan isi ruang hanya karena bisa.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Visual Hierarchy</span>
+      <p class="card-desc">Satu focal point per layout. Satu pesan per frame. Mata konsumen tidak boleh bingung harus melihat ke mana dulu.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3>D. Photography Direction</h3>
+  <div class="two-col">
+    <div>
+      <div class="card" style="margin-bottom:8px;">
+        <span class="card-label">Lighting</span>
+        <p class="card-desc">Soft diffused. Natural window light atau studio dengan softbox lembut. Tidak ada harsh shadow. Bayangan harus gentle dan directional.</p>
+      </div>
+      <div class="card" style="margin-bottom:8px;">
+        <span class="card-label">Background</span>
+        <p class="card-desc">Pale gray, warm ivory, atau muted editorial backdrop. Tidak pernah pure white yang terlalu clinical. Tidak pernah pattern yang distract.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">Model & Pose</span>
+        <p class="card-desc">Calm, poised, natural. Tidak overly posed, tidak too casual. Model harus terlihat seperti perempuan nyata yang confident — bukan influencer yang menjual sesuatu.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:8px;">
+        <span class="card-label">Focus & Detail</span>
+        <p class="card-desc">Close-up fabric untuk menunjukkan texture dan drape. Cropping boleh loose dan editorial. Gerakan diperbolehkan — walking, turning, natural movement yang menunjukkan flow kain.</p>
+      </div>
+      <div class="card" style="margin-bottom:8px;">
+        <span class="card-label">Editing</span>
+        <p class="card-desc">Minimal retouching. Warna warm, sedikit matte. Tidak ada beauty filter berlebihan. Skin tone harus terlihat natural dan real.</p>
+      </div>
+      <div class="card">
+        <span class="card-label">Avoidance</span>
+        <p class="card-desc">Pose hard-sell. Lighting terlalu harsh. Background ramai. Filter terlalu terang. Visual terlalu bridal catalog. Props yang tidak relevan. Ekspresi yang terlalu dipaksakan.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3>E. Packaging Direction</h3>
+  <div class="three-col">
+    <div class="card-dark">
+      <h3>Material</h3>
+      <p>Soft matte paper untuk box dan bag. Kraft bertexture untuk inner wrap. Recycled elements sebagai pilihan untuk reinforce nilai brand yang thoughtful.</p>
+    </div>
+    <div class="card-dark">
+      <h3>Detail & Finishing</h3>
+      <p>Subtle emboss atau deboss untuk nama SECERA. Tidak ada gold foil yang mencolok. Ribbon dalam warna taupe atau dusty pink. Hangtag minimal dengan kertas uncoated.</p>
+    </div>
+    <div class="card-dark">
+      <h3>Information</h3>
+      <p>Sesedikit mungkin teks di permukaan. Semua informasi penting bisa di dalam — bukan di luar. Packaging harus terasa seperti hadiah untuk diri sendiri, bukan bungkus marketplace.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 08: TONE OF VOICE -->
+<div class="section" style="background: var(--cream);">
+  <span class="section-number">08</span>
+  <div class="section-title">Tone of <em>Voice</em></div>
+
+  <h3>Voice Principles</h3>
+  <div class="pill-group">
+    <span class="pill pill-dark">Calm</span>
+    <span class="pill pill-dark">Confident</span>
+    <span class="pill pill-dark">Relatable</span>
+    <span class="pill pill-dark">Non-salesy</span>
+    <span class="pill pill-dark">Polished</span>
+    <span class="pill pill-cream">Tidak lebay</span>
+    <span class="pill pill-cream">Tidak terlalu formal</span>
+    <span class="pill pill-cream">Tidak terlalu slang</span>
+  </div>
+
+  <p>SECERA berbicara seperti teman yang paling stylish yang kamu miliki — yang tidak pernah memaksa kamu membeli apa pun, tapi selalu punya jawaban yang tepat ketika kamu butuh.</p>
+
+  <h3>Vocabulary yang Boleh Digunakan</h3>
+  <div class="pill-group">
+    <span class="pill pill-cream">effortless</span><span class="pill pill-cream">polished</span><span class="pill pill-cream">ready</span><span class="pill pill-cream">occasion</span><span class="pill pill-cream">calm</span><span class="pill pill-cream">elevated</span><span class="pill pill-cream">graceful</span><span class="pill pill-cream">soft drape</span><span class="pill pill-cream">instant</span><span class="pill pill-cream">tinggal pakai</span><span class="pill pill-cream">tanpa ribet</span><span class="pill pill-cream">siap tampil</span><span class="pill pill-cream">looks intentional</span><span class="pill pill-cream">special moments</span><span class="pill pill-cream">event-ready</span><span class="pill pill-cream">niat</span><span class="pill pill-cream">tahu diri</span>
+  </div>
+
+  <h3>Vocabulary yang Harus Dihindari</h3>
+  <div class="pill-group">
+    <span class="pill pill-outline" style="text-decoration:line-through;">murah</span><span class="pill pill-outline" style="text-decoration:line-through;">diskon gila</span><span class="pill pill-outline" style="text-decoration:line-through;">wajib checkout</span><span class="pill pill-outline" style="text-decoration:line-through;">auto cantik</span><span class="pill pill-outline" style="text-decoration:line-through;">viral banget</span><span class="pill pill-outline" style="text-decoration:line-through;">anti gagal</span><span class="pill pill-outline" style="text-decoration:line-through;">super mewah</span><span class="pill pill-outline" style="text-decoration:line-through;">princess</span><span class="pill pill-outline" style="text-decoration:line-through;">glam maksimal</span><span class="pill pill-outline" style="text-decoration:line-through;">salfok</span><span class="pill pill-outline" style="text-decoration:line-through;">kece badai</span>
+  </div>
+
+  <h3>Contoh Copy</h3>
+
+  <div class="voice-example">
+    <span class="voice-label">Website Hero Copy</span>
+    <p class="voice-text">Untuk acara yang tidak bisa menunggu. Untuk momen yang terlalu penting untuk terlihat tidak siap.</p>
+  </div>
+
+  <div class="voice-example">
+    <span class="voice-label">Selendang Instant — Product Description</span>
+    <p class="voice-text">Tidak ada yang perlu disesuaikan. Tidak ada yang perlu dipikirkan lagi. Tinggal pakai — dan kamu sudah terlihat seperti sudah menyiapkan dari tadi.</p>
+  </div>
+
+  <div class="voice-example">
+    <span class="voice-label">Multiway Product — Product Description</span>
+    <p class="voice-text">Satu siluet, tiga cara. Kondangan Sabtu, dinner Minggu, office Senin. Bukan karena SECERA serba bisa — tapi karena kami merancangnya untuk kehidupan yang memang begitu.</p>
+  </div>
+
+  <div class="voice-example">
+    <span class="voice-label">Bridesmaid Set — Campaign Copy</span>
+    <p class="voice-text">Semua cantik, tidak ada yang perlu kompromi. Karena hari itu bukan soal siapa yang paling standout — tapi soal semua terlihat sudah siap.</p>
+  </div>
+
+  <div class="voice-example">
+    <span class="voice-label">Instagram Caption — Pendek</span>
+    <p class="voice-text">Besok kondangan. Malam ini sudah tenang. — SECERA.</p>
+  </div>
+
+  <div class="voice-example">
+    <span class="voice-label">TikTok Hook — Tetap Premium</span>
+    <p class="voice-text">POV: Baru ingat besok ada acara. Tapi kamu sudah punya SECERA.</p>
+  </div>
+
+  <div class="voice-example">
+    <span class="voice-label">Packaging Insert</span>
+    <p class="voice-text">Kamu tidak perlu banyak waktu untuk terlihat siap. Kamu hanya butuh pilihan yang tepat. Selamat datang di SECERA.</p>
+  </div>
+
+  <div class="voice-example">
+    <span class="voice-label">Campaign Line</span>
+    <p class="voice-text">Tinggal pakai. Langsung terlihat niat.</p>
+  </div>
+</div>
+
+<!-- SECTION 09: CONTENT STRATEGY -->
+<div class="section">
+  <span class="section-number">09</span>
+  <div class="section-title">Content <em>Strategy</em></div>
+
+  <p>Konten SECERA harus terasa seperti editorial yang berguna — bukan iklan yang menjual. Setiap konten harus bisa berdiri sendiri sebagai sesuatu yang worth watching atau reading, bahkan tanpa menyebut produk.</p>
+
+  <h3>Content Pillars</h3>
+
+  <div class="content-pillar">
+    <span class="pillar-label">Pillar A</span>
+    <div class="pillar-name">No Time, Still Stunning</div>
+    <p class="pillar-desc">Konten solusi cepat. Menunjukkan bahwa dengan SECERA, kesiapan bukan soal waktu. Hook: situasi nyata panik sebelum acara → SECERA sebagai solusi yang tenang. Format: video 30–60 detik, before-after, transformation tanpa drama.</p>
+  </div>
+
+  <div class="content-pillar">
+    <span class="pillar-label">Pillar B</span>
+    <div class="pillar-name">Repeat Without Notice</div>
+    <p class="pillar-desc">Satu produk, banyak occasion, vibe berbeda. Menunjukkan versatility tanpa harus menjelaskannya. Hook: "Satu selendang, tiga kondangan berbeda." Format: carousel, split-screen styling, weekly wear series.</p>
+  </div>
+
+  <div class="content-pillar">
+    <span class="pillar-label">Pillar C</span>
+    <div class="pillar-name">Look Expensive</div>
+    <p class="pillar-desc">Close-up fabric, flow, movement, dan elevated styling. Tidak menyebut harga. Tidak menyebut "affordable." Hanya menunjukkan kualitas visual yang berbicara sendiri. Format: slow-motion, macro fabric shot, editorial stills.</p>
+  </div>
+
+  <div class="content-pillar">
+    <span class="pillar-label">Pillar D</span>
+    <div class="pillar-name">Real Girl Moments</div>
+    <p class="pillar-desc">Situasi nyata yang relatable: besok kondangan, bridesmaid call mendadak, family event yang lupa. Bukan scripted, tapi tetap polished. Format: talking-head yang calm, situational comedy yang soft, UGC-style tapi dengan standard visual SECERA.</p>
+  </div>
+
+  <div class="content-pillar">
+    <span class="pillar-label">Pillar E</span>
+    <div class="pillar-name">SECERA Effect</div>
+    <p class="pillar-desc">Reaksi dan hasil setelah memakai: compliments, confidence, mirror check, photo-ready moments. Social proof yang terasa authentic, bukan testimonial yang dipaksakan. Format: reaction videos, compliment moments, before-after confidence arc.</p>
+  </div>
+
+  <div class="content-pillar">
+    <span class="pillar-label">Pillar F</span>
+    <div class="pillar-name">Occasion System</div>
+    <p class="pillar-desc">Edukasi bahwa SECERA adalah sistem, bukan hanya produk individual. Menunjukkan bagaimana produk-produk SECERA bekerja bersama untuk membangun complete occasion wardrobe. Format: styling guide, lookbook series, "how to build your SECERA wardrobe."</p>
+  </div>
+
+  <h3>Platform Direction</h3>
+  <div class="two-col">
+    <div class="card">
+      <span class="card-label">Instagram</span>
+      <p class="card-desc">Feed: editorial, minimal, konsisten palet warna. Stories: lebih personal dan real-time. Reels: Pillars A, B, dan E — action-driven. Highlight: Pillar F (occasion system education). Caption: pendek, calm, tidak hard-sell. Frequency: 4–5x seminggu.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">TikTok</span>
+      <p class="card-desc">Hook dalam 3 detik pertama harus relevan secara emosional (bukan visual gimmick). Pillar A dan D paling efektif di sini. Tone boleh sedikit lebih conversational tapi tetap polished. Tidak ada bahasa marketplace. Frequency: 5–7x seminggu.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Marketplace (Shopee/Tokopedia)</span>
+      <p class="card-desc">Foto produk: clean studio, product-first, warna akurat. Deskripsi: informatif, calm, tidak menggunakan kata-kata promosi agresif. Banner: sesederhana mungkin, visual SECERA harus tetap tampak bahkan di environment marketplace yang ramai.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Website</span>
+      <p class="card-desc">Pengalaman browsing yang tenang. Minimal pop-up. Produk dikelompokkan berdasarkan occasion system, bukan berdasarkan kategori yang generik. Brand story harus mudah ditemukan. Editorial content sebagai layer kedua untuk brand depth.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 10: COMPETITIVE GAP -->
+<div class="section" style="background: var(--cream);">
+  <span class="section-number">10</span>
+  <div class="section-title">Competitive <em>Gap</em></div>
+
+  <div class="large-quote">Banyak brand menjual baju cantik. SECERA menjual rasa siap.</div>
+
+  <h3>Analisis Gap Pasar</h3>
+
+  <div class="gap-row">
+    <span class="gap-left">Brand modest wear lokal → menjual identitas religius atau gaya hidup</span>
+    <span class="gap-arrow-mid">→</span>
+    <span class="gap-right">SECERA menjual solusi praktis yang inklusif untuk semua perempuan, berhijab maupun tidak</span>
+  </div>
+  <div class="gap-row">
+    <span class="gap-left">Brand bridesmaid → fokus pada grup dan koordinasi warna</span>
+    <span class="gap-arrow-mid">→</span>
+    <span class="gap-right">SECERA fokus pada kemudahan dan kesiapan individual dalam konteks grup</span>
+  </div>
+  <div class="gap-row">
+    <span class="gap-left">Brand selendang / scarf → produk-sentris, tidak punya narasi</span>
+    <span class="gap-arrow-mid">→</span>
+    <span class="gap-right">SECERA adalah category creator dengan sistem, filosofi, dan identitas yang kuat</span>
+  </div>
+  <div class="gap-row">
+    <span class="gap-left">Brand occasion dress → terlalu seasonal, terlalu trend-driven</span>
+    <span class="gap-arrow-mid">→</span>
+    <span class="gap-right">SECERA membangun timeless occasion system yang relevan sepanjang tahun</span>
+  </div>
+  <div class="gap-row">
+    <span class="gap-left">Fashion marketplace → visual ramai, bahasa agresif, harga sebagai diferensiasi</span>
+    <span class="gap-arrow-mid">→</span>
+    <span class="gap-right">SECERA adalah antitesis marketplace: tenang, editorial, solusi-sentris</span>
+  </div>
+  <div class="gap-row">
+    <span class="gap-left">Luxury-inspired local fashion → aspirasional tapi tidak accessible</span>
+    <span class="gap-arrow-mid">→</span>
+    <span class="gap-right">SECERA premium dalam rasa, accessible dalam harga — tanpa mengorbankan identitasnya</span>
+  </div>
+
+  <h3>Peluang Unik SECERA</h3>
+  <div class="three-col" style="margin-top: 1rem;">
+    <div class="card">
+      <span class="card-label">Tidak Ada Kompetitor Sistem</span>
+      <p class="card-desc">Tidak ada brand lokal yang memposisikan diri sebagai occasion ecosystem. Ini adalah ruang putih yang SECERA bisa isi sebelum orang lain menyadarinya.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Tone Gap yang Besar</span>
+      <p class="card-desc">Hampir semua kompetitor berbicara terlalu keras, terlalu promosi, atau terlalu tradisional. Suara SECERA yang calm dan confident akan terasa sangat berbeda.</p>
+    </div>
+    <div class="card">
+      <span class="card-label">Category Ownership</span>
+      <p class="card-desc">SECERA adalah #1 selendang instant. Ini adalah asset yang tidak ternilai — jika dikunci dengan brand foundation yang kuat sekarang, sebelum kompetitor mencoba mengklaim hal yang sama.</p>
+    </div>
+  </div>
+
+  <h3>Respons Strategis terhadap Price Competition</h3>
+  <p>Kompetitor baru masuk dengan harga lebih murah. Respons SECERA bukan dengan menurunkan harga atau menaikkan diskon — tapi dengan memperdalam nilai yang tidak bisa dikopi: identitas, sistem, kepercayaan, dan pengalaman. Saat konsumen melihat brand baru yang "mirip tapi lebih murah," SECERA harus sudah menjadi pilihan default bukan karena harga, tapi karena rasa.</p>
+</div>
+
+<!-- SECTION 11: NAMING SYSTEM -->
+<div class="section">
+  <span class="section-number">11</span>
+  <div class="section-title">Naming <em>System</em></div>
+
+  <div class="naming-card">
+    <div class="naming-header">
+      <div class="naming-title">Arah A — Minimal & Architectural</div>
+      <div class="naming-concept">Nama yang clean, structured, dan terasa seperti fashion brand premium internasional. Monosilabel atau dua suku kata. Tidak dekoratif.</div>
+    </div>
+    <div class="naming-body">
+      <p class="card-desc">Cocok untuk: Product lines utama, hero collections, signature pieces. Karakter bunyi: pendek, kuat, mudah diingat.</p>
+      <div class="name-examples">
+        <span class="pill pill-cream">FORM</span><span class="pill pill-cream">DRAPE</span><span class="pill pill-cream">EASE</span><span class="pill pill-cream">VEIL</span><span class="pill pill-cream">SOFT LINE</span><span class="pill pill-cream">POISE</span><span class="pill pill-cream">STILL</span><span class="pill pill-cream">COLUMN</span><span class="pill pill-cream">TRACE</span><span class="pill pill-cream">CLOTH</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="naming-card">
+    <div class="naming-header" style="background: #E8E4DC;">
+      <div class="naming-title">Arah B — Occasion & Emotional</div>
+      <div class="naming-concept">Nama yang berhubungan dengan momen, kesiapan, kehadiran, dan perasaan. Relevan dengan konteks occasion wear.</div>
+    </div>
+    <div class="naming-body">
+      <p class="card-desc">Cocok untuk: Campaign names, drop names, seasonal moments. Karakter bunyi: evocative, relatable, grounded.</p>
+      <div class="name-examples">
+        <span class="pill pill-cream">READY EDIT</span><span class="pill pill-cream">PRESENCE</span><span class="pill pill-cream">FIVE-MINUTE</span><span class="pill pill-cream">THE GATHERING</span><span class="pill pill-cream">ARRIVAL</span><span class="pill pill-cream">PREPARED</span><span class="pill pill-cream">THE EVENT</span><span class="pill pill-cream">OCCASION NOTES</span><span class="pill pill-cream">MORNING OF</span><span class="pill pill-cream">FIRST LOOK</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="naming-card">
+    <div class="naming-header" style="background: #E4DCD8;">
+      <div class="naming-title">Arah C — Modular & Functional</div>
+      <div class="naming-concept">Nama yang menjelaskan sistem, versatility, dan transformasi. Terasa seperti bahasa desain produk, bukan nama koleksi fashion biasa.</div>
+    </div>
+    <div class="naming-body">
+      <p class="card-desc">Cocok untuk: Styling system names, product sub-categories, occasion wardrobe builder. Karakter bunyi: systematic, intelligent, purposeful.</p>
+      <div class="name-examples">
+        <span class="pill pill-cream">VERSA</span><span class="pill pill-cream">INSTANT LINE</span><span class="pill pill-cream">THE SYSTEM</span><span class="pill pill-cream">MODULAR SET</span><span class="pill pill-cream">OCCASION KIT</span><span class="pill pill-cream">LAYERING EDIT</span><span class="pill pill-cream">WRAP SYSTEM</span><span class="pill pill-cream">THE STACK</span><span class="pill pill-cream">REPEAT WEAR</span><span class="pill pill-cream">MULTI-FORM</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 1rem; background: #F5ECEC;">
+    <span class="card-label" style="color: #7A3028;">Nama yang Harus Dihindari</span>
+    <p class="card-desc">Nama yang terlalu bridal (Anggun, Permata, Mutiara), terlalu religious dan eksklusif, terlalu playful (Cetar, Hits, Kece), terlalu generic (Collection 01, Series A), atau yang terasa seperti nama marketplace biasa.</p>
+  </div>
+</div>
+
+<!-- SECTION 12: DESIGN DECISION FRAMEWORK -->
+<div class="section" style="background: var(--espresso); color: var(--cream);">
+  <span class="section-number" style="color: var(--taupe);">12</span>
+  <div class="section-title" style="color: var(--cream);">Design Decision <em style="color: var(--dusty-pink);">Framework</em></div>
+
+  <p style="color: var(--warm-beige); max-width: 580px;">Framework ini digunakan setiap kali SECERA mengambil keputusan desain, copy, konten, atau produk. Tanya dulu — baru eksekusi.</p>
+
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika desain terasa terlalu komersial...</span>
+    <span class="framework-a" style="color: var(--cream);">Kurangi elemen. Tambah ruang kosong. Satu pesan, satu visual.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika copy terasa terlalu menjual...</span>
+    <span class="framework-a" style="color: var(--cream);">Tulis ulang tanpa kata kerja penjualan. Gunakan situasi atau emosi sebagai gantinya.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika visual terasa seperti marketplace...</span>
+    <span class="framework-a" style="color: var(--cream);">Hapus badge, sticker, dan angka harga dari visual utama. Biarkan produk berbicara.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika produk terasa terlalu basic...</span>
+    <span class="framework-a" style="color: var(--cream);">Tambahkan satu design intention — detail, drape, atau feature yang bisa diceritakan.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika produk terasa terlalu ribet...</span>
+    <span class="framework-a" style="color: var(--cream);">Kembali ke prinsip utama: apakah ini bisa "tinggal pakai"? Jika tidak, sederhanakan.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika brand terasa terlalu luxury dan jauh...</span>
+    <span class="framework-a" style="color: var(--cream);">Masukkan satu situasi nyata. Satu momen yang bisa dikenali. Grounding dalam konteks hidup konsumen.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika brand terasa terlalu playful...</span>
+    <span class="framework-a" style="color: var(--cream);">Kembali ke tone calm dan confident. Kurangi exclamation mark. Kurangi urgency yang dipaksakan.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika konten terasa terlalu hard-selling...</span>
+    <span class="framework-a" style="color: var(--cream);">Tanya: apakah konten ini masih layak ditonton jika tidak ada produk yang dijual? Jika tidak — tulis ulang.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika packaging terasa terlalu dekoratif...</span>
+    <span class="framework-a" style="color: var(--cream);">Kurangi satu elemen. Packaging premium adalah yang paling sedikit menggunakan kata-kata.</span>
+  </div>
+  <div class="framework-item" style="border-color: rgba(200,186,165,0.2);">
+    <span class="framework-q" style="color: var(--taupe);">Jika SECERA mulai kehilangan rasa calm confidence...</span>
+    <span class="framework-a" style="color: var(--cream);">Kembali ke Manifesto. Baca ulang. Tanyakan: apakah ini masih terasa seperti SECERA?</span>
+  </div>
+
+  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid rgba(200,186,165,0.2);">
+    <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--taupe); display: block; margin-bottom: 1.5rem;">Every SECERA Decision Must Pass These 6 Filters</span>
+
+    <div class="filter-check">
+      <span class="check-num">1</span>
+      <p class="check-text" style="color: var(--warm-beige);">Apakah ini membuat proses berpakaian lebih mudah?</p>
+    </div>
+    <div class="filter-check">
+      <span class="check-num">2</span>
+      <p class="check-text" style="color: var(--warm-beige);">Apakah ini membuat pemakainya terlihat lebih polished?</p>
+    </div>
+    <div class="filter-check">
+      <span class="check-num">3</span>
+      <p class="check-text" style="color: var(--warm-beige);">Apakah ini mengurangi styling anxiety?</p>
+    </div>
+    <div class="filter-check">
+      <span class="check-num">4</span>
+      <p class="check-text" style="color: var(--warm-beige);">Apakah ini terasa elevated tapi tetap relatable?</p>
+    </div>
+    <div class="filter-check">
+      <span class="check-num">5</span>
+      <p class="check-text" style="color: var(--warm-beige);">Apakah ini cocok untuk konteks special occasion?</p>
+    </div>
+    <div class="filter-check" style="border-bottom: none;">
+      <span class="check-num">6</span>
+      <p class="check-text" style="color: var(--warm-beige);">Apakah ini memperkuat SECERA sebagai occasion system?</p>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="section" style="text-align: center; padding: 5rem 3rem;">
+  <div style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--espresso); margin-bottom: 1rem;">SECERA</div>
+  <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--mocha); margin: 0 auto;">Tinggal pakai. Langsung terlihat niat.</p>
+  <div style="width: 40px; height: 0.5px; background: var(--taupe); margin: 2rem auto;"></div>
+  <p style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin: 0;">Brand Foundation Document · Confidential · Internal Use Only</p>
+</div>

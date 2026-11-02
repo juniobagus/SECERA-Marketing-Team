@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SECERA — Website Copywriting Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F5F0E8;
+  --warm-beige: #EDE5D4;
+  --ivory: #FAF7F2;
+  --taupe: #C8BAA5;
+  --mocha: #8B7355;
+  --espresso: #4A3728;
+  --charcoal: #2C2825;
+  --dusty-pink: #D4B8B0;
+  --muted-sage: #A8B5A0;
+  --muted-mauve: #B8A0A8;
+  --burgundy: #7C2D3E;
+  --text-primary: #2C2825;
+  --text-secondary: #6B5D4F;
+  --text-muted: #9B8B7A;
+  --border-light: rgba(44, 40, 37, 0.08);
+  --border-medium: rgba(44, 40, 37, 0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ivory);
+  color: var(--text-primary);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* COVER */
+.cover {
+  background: var(--espresso);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 5rem 4rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(188, 100, 70, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cover-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.cover-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(7rem, 20vw, 13rem);
+  font-weight: 300;
+  line-height: 0.88;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+.cover-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--taupe);
+  max-width: 400px;
+  line-height: 1.65;
+  border-left: 1px solid rgba(200,186,165,0.3);
+  padding-left: 1.5rem;
+}
+
+.cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 0.5px solid rgba(200,186,165,0.2);
+  padding-top: 2rem;
+  margin-top: 4rem;
+}
+
+.cover-meta {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  line-height: 2;
+}
+
+.cover-pages {
+  display: flex;
+  gap: 2rem;
+}
+
+.cover-page-tag {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(200,186,165,0.5);
+}
+
+/* TABLE OF CONTENTS */
+.toc {
+  background: var(--cream);
+  padding: 5rem 4rem;
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.toc-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 0.5px solid var(--border-medium);
+}
+
+.toc-item {
+  padding: 2rem 1.75rem;
+  border-right: 0.5px solid var(--border-medium);
+  text-decoration: none;
+  transition: background 0.2s ease;
+  display: block;
+}
+
+.toc-item:last-child { border-right: none; }
+.toc-item:hover { background: var(--warm-beige); }
+
+.toc-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.toc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--espresso);
+  line-height: 1.2;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.toc-url {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* PAGE SECTION */
+.page-section {
+  padding: 0;
+  border-bottom: 3px solid var(--espresso);
+}
+
+.page-header {
+  background: var(--espresso);
+  color: var(--cream);
+  padding: 4rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.page-header-left {
+  flex: 1;
+}
+
+.page-tag {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.page-url {
+  font-size: 12px;
+  color: rgba(200,186,165,0.6);
+  letter-spacing: 0.1em;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* CONTENT LAYOUT */
+.content-block {
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.section-inner {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+}
+
+.section-label-col {
+  background: var(--warm-beige);
+  padding: 3rem 2rem;
+  border-right: 0.5px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-name {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.section-page-ref {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--mocha);
+  line-height: 1.4;
+}
+
+.section-context {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.section-content-col {
+  padding: 3rem 3.5rem;
+}
+
+/* COPY BLOCKS */
+.copy-block {
+  margin-bottom: 2.5rem;
+}
+
+.copy-block:last-child { margin-bottom: 0; }
+
+.copy-type {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.copy-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--espresso);
+  margin-bottom: 1rem;
+}
+
+.copy-headline em {
+  font-style: italic;
+  color: var(--mocha);
+}
+
+.copy-subhead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.copy-body {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.copy-body p { margin-bottom: 0.85rem; }
+.copy-body p:last-child { margin-bottom: 0; }
+
+.copy-cta {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--espresso);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--espresso);
+  padding-bottom: 2px;
+}
+
+.copy-cta-alt {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--espresso);
+  color: var(--cream);
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+}
+
+/* DIVIDER IN CONTENT */
+.copy-divider {
+  border: none;
+  border-top: 0.5px solid var(--border-light);
+  margin: 2rem 0;
+}
+
+/* INLINE COPY CARD */
+.inline-copy {
+  background: var(--cream);
+  border: 0.5px solid var(--border-medium);
+  padding: 1.75rem 2rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.inline-copy-label {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.inline-copy-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.inline-copy-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* GRID COPY — for multi-column sections */
+.copy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.copy-grid-item {
+  background: var(--ivory);
+  border: 0.5px solid var(--border-light);
+  padding: 1.5rem;
+}
+
+.copy-grid-label {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.copy-grid-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--espresso);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.copy-grid-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* THREE COL */
+.copy-three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border-light);
+  border: 0.5px solid var(--border-light);
+  margin: 1.5rem 0;
+}
+
+.copy-three-item {
+  background: var(--ivory);
+  padding: 1.5rem;
+}
+
+/* QUOTE */
+.copy-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--espresso);
+  border-left: 2px solid var(--dusty-pink);
+  padding: 0.5rem 0 0.5rem 2rem;
+  margin: 1.75rem 0;
+  line-height: 1.55;
+  max-width: 560px;
+}
+
+/* DARK SECTION */
+.dark-block {
+  background: var(--espresso);
+  color: var(--cream);
+  padding: 3.5rem;
+  margin: 0;
+}
+
+.dark-block .copy-body { color: var(--warm-beige); }
+.dark-block .copy-headline { color: var(--cream); }
+.dark-block .copy-cta { color: var(--cream); border-color: var(--cream); }
+.dark-block .copy-subhead { color: var(--taupe); }
+
+/* BURGUNDY ACCENT */
+.accent-block {
+  background: var(--burgundy);
+  color: var(--cream);
+  padding: 3.5rem;
+}
+
+.accent-block .copy-headline { color: var(--cream); }
+.accent-block .copy-body { color: rgba(245,240,232,0.8); }
+.accent-block .copy-type { color: rgba(200,186,165,0.7); }
+.accent-block .copy-cta-alt {
+  background: var(--cream);
+  color: var(--espresso);
+}
+
+/* MICRO-COPY */
+.micro-copy-row {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.micro-copy-item {
+  flex: 1;
+  min-width: 160px;
+}
+
+.micro-copy-key {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.micro-copy-val {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* FAQ STYLE */
+.faq-item {
+  border-bottom: 0.5px solid var(--border-light);
+  padding: 1.25rem 0;
+}
+
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--espresso);
+  margin-bottom: 0.4rem;
+}
+
+.faq-a {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* NAVIGATION COPY */
+.nav-copy {
+  background: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 4rem;
+  gap: 3rem;
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  color: var(--cream);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-link-item {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+/* FOOTER COPY */
+.footer-copy {
+  background: var(--espresso);
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-cta-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.35;
+  margin-bottom: 1.25rem;
+}
+
+.footer-cta-sub {
+  font-size: 11px;
+  color: var(--taupe);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.footer-cta-btn {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--espresso);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+}
+
+.footer-col-title {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 1.25rem;
+}
+
+.footer-col-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-col-links li {
+  font-size: 13px;
+  color: rgba(200,186,165,0.65);
+  line-height: 1.4;
+}
+
+/* NOTE BADGE */
+.note-badge {
+  display: inline-block;
+  background: var(--warm-beige);
+  border: 0.5px solid var(--border-medium);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--mocha);
+  text-transform: uppercase;
+  padding: 3px 10px;
+  margin-bottom: 1rem;
+}
+
+/* FULL WIDTH PROMO BLOCK */
+.promo-block {
+  padding: 5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-block-dark {
+  background: var(--charcoal);
+  color: var(--cream);
+}
+
+.promo-block-dark .copy-headline { color: var(--cream); }
+.promo-block-dark .copy-body { color: var(--warm-beige); max-width: 480px; margin: 0 auto 2rem; text-align: center; }
+
+/* CAREER SPECIFIC */
+.job-card {
+  border: 0.5px solid var(--border-medium);
+  padding: 1.75rem 2rem;
+  background: var(--ivory);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.job-card-left {}
+
+.job-dept {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.job-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--espresso);
+  margin-bottom: 0.5rem;
+}
+
+.job-tags {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.job-tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: var(--warm-beige);
+  padding: 2px 10px;
+}
+
+.job-apply {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--espresso);
+  color: var(--cream);
+  text-decoration: none;
+  padding: 0.65rem 1.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* VALUE PROP COLUMN */
+.value-props {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border-light);
+  margin: 1.5rem 0;
+}
+
+.value-prop {
+  background: var(--ivory);
+  padding: 2rem;
+}
+
+.value-prop-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(200,186,165,0.5);
+  line-height: 1;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.value-prop-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--espresso);
+  margin-bottom: 0.5rem;
+}
+
+.value-prop-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* UTILITY */
+.separator-section {
+  padding: 2rem 4rem;
+  background: var(--warm-beige);
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.separator-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media print {
+  .cover { min-height: auto; padding: 3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ COVER ═══════════════════════════════════ -->
+<div class="cover">
+  <div>
+    <p class="cover-eyebrow">secera.id — website copywriting</p>
+    <div class="cover-wordmark">SECERA</div>
+    <p class="cover-desc">Copywriting untuk setiap halaman, setiap section. Disusun dalam nada yang tenang, percaya diri, dan selalu relevan dengan momennya.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      Versi 1.0&nbsp;&nbsp;&nbsp;&nbsp;Mei 2026<br>
+      Untuk: Tim Konten &amp; Desainer Web
+    </div>
+    <div class="cover-pages">
+      <span class="cover-page-tag">Beranda</span>
+      <span class="cover-page-tag">Koleksi</span>
+      <span class="cover-page-tag">Tentang</span>
+      <span class="cover-page-tag">Karir</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ TABLE OF CONTENTS ══════════════════════════════ -->
+<div class="toc">
+  <p class="toc-label">Isi Dokumen</p>
+  <div class="toc-grid">
+    <a href="#beranda" class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Beranda</span>
+      <span class="toc-url">secera.id/</span>
+    </a>
+    <a href="#koleksi" class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">Koleksi</span>
+      <span class="toc-url">secera.id/koleksi</span>
+    </a>
+    <a href="#tentang" class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">Tentang Kami</span>
+      <span class="toc-url">secera.id/tentang</span>
+    </a>
+    <a href="#karir" class="toc-item">
+      <span class="toc-num">04</span>
+      <span class="toc-title">Karir</span>
+      <span class="toc-url">secera.id/karir</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAGE 01: BERANDA ═══════════════════════════════ -->
+<div class="page-section" id="beranda">
+  <div class="page-header">
+    <div class="page-header-left">
+      <span class="page-tag">Halaman 01 dari 04</span>
+      <h1 class="page-title">Beranda</h1>
+    </div>
+    <span class="page-url">secera.id/</span>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Navigasi Utama</span>
+        <span class="section-context">Header — selalu tampil di semua halaman</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Brand Name</span>
+          <div class="copy-headline" style="font-size:2rem">SECERA</div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">Menu Links</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Link 1</span>
+              <span class="micro-copy-val">Beranda</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Link 2</span>
+              <span class="micro-copy-val">Koleksi</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Link 3</span>
+              <span class="micro-copy-val">Tentang</span>
+            </div>
+          </div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">Icon Labels (aria)</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Ikon Kiri</span>
+              <span class="micro-copy-val">Cari produk</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Ikon Kanan</span>
+              <span class="micro-copy-val">Akun saya</span>
+            </div>
+          </div>
+        </div>
+        <div class="copy-quote">Navigasi cukup tiga kata. Tidak perlu lebih.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Hero — Fullscreen</span>
+        <span class="section-context">Di atas lipatan. Kesan pertama. Tone-setter seluruh halaman.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow (kecil, di atas headline)</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Teks kecil — 10–11px, spasi huruf lebar, uppercase</span>
+            <div class="inline-copy-text">Untuk setiap momen yang layak dikenang.</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Headline Utama</span>
+          <div class="copy-headline">Hari spesial,<br>bersama SECERA.</div>
+          <div class="copy-body">
+            <p><em>Tone: Calm confidence. Tidak ada urgensi, tidak ada hype. Cukup keyakinan yang halus.</em></p>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Sub-headline (opsional — bisa disembunyikan di mobile)</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Body teks kecil di bawah headline</span>
+            <div class="inline-copy-text">Saat momen penting datang, kamu ingin tampil tepat. SECERA hadir untuk itu — dengan busana yang sudah selesai sebelum kamu memakainya.</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">CTA Button</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Button — utama hero</span>
+            <div class="inline-copy-text">Pilih SECERA untuk hari spesial</div>
+            <div class="inline-copy-body">Alternatif jika terlalu panjang: "Lihat Koleksi"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY SPLIT -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Kategori Split — Modern &amp; Etnik</span>
+        <span class="section-context">Dua panel foto berdampingan, masing-masing dengan label &amp; CTA</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-grid">
+          <div class="copy-grid-item">
+            <span class="copy-grid-label">Panel Kiri</span>
+            <div class="copy-grid-title">Modern</div>
+            <div class="copy-grid-body">
+              <p><strong>Eyebrow:</strong> Minimalis &amp; Pekat</p>
+              <p><strong>Label besar:</strong> Modern</p>
+              <p><strong>CTA link:</strong> Lihat Gaya Modern →</p>
+            </div>
+          </div>
+          <div class="copy-grid-item">
+            <span class="copy-grid-label">Panel Kanan</span>
+            <div class="copy-grid-title">Etnik</div>
+            <div class="copy-grid-body">
+              <p><strong>Eyebrow:</strong> Sentuhan Budaya &amp; Warisan</p>
+              <p><strong>Label besar:</strong> Etnik</p>
+              <p><strong>CTA link:</strong> Lihat Gaya Etnik →</p>
+            </div>
+          </div>
+        </div>
+        <div class="copy-quote">Dua gaya. Satu standard kualitas. Sama-sama dirancang untuk momen yang berarti.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUALITY MANIFESTO -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Pernyataan Kualitas</span>
+        <span class="section-context">Text-heavy section. Membangun kepercayaan melalui kalimat — bukan angka atau sertifikasi.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Teks kecil di atas heading</span>
+            <div class="inline-copy-text">Alasan setiap helai ada.</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Heading Utama</span>
+          <div class="copy-headline">Kualitas premium yang terasa personal, saat momen spesial datang, kamu ingin tampil tepat.</div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Body Copy</span>
+          <div class="copy-body">
+            <p>Koleksi terbaik. Material pilihan. Tiap hari berkesan di hari kamu hadir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARDS -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Produk Unggulan — Grid 4 kolom</span>
+        <span class="section-context">Product cards. Setiap card punya name, badge, dan price. Tidak ada deskripsi panjang di sini.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Badge Labels</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Promo</span>
+              <span class="micro-copy-val">PROMO — gunakan hanya jika ada diskon nyata. Jangan berlebihan.</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Baru</span>
+              <span class="micro-copy-val">BARU — untuk koleksi yang baru diluncurkan (&lt;30 hari).</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Pilihan</span>
+              <span class="micro-copy-val">PILIHAN KAMI — editorial pick, kurasi tim internal.</span>
+            </div>
+          </div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">Contoh Product Card Copy</span>
+          <div class="copy-three-col">
+            <div class="copy-three-item">
+              <span class="copy-grid-label">Nama Produk</span>
+              <div class="copy-grid-title">Selendang Lurus</div>
+              <div class="copy-grid-body" style="font-size:12px;">Nama produk: deskriptif, bukan promosi. Cukup jelas tanpa embel-embel.</div>
+            </div>
+            <div class="copy-three-item">
+              <span class="copy-grid-label">Harga</span>
+              <div class="copy-grid-title">Rp 46.345</div>
+              <div class="copy-grid-body" style="font-size:12px;">Tampilkan harga asli dulu, lalu harga coret jika ada promo. Jangan sembunyikan harga.</div>
+            </div>
+            <div class="copy-three-item">
+              <span class="copy-grid-label">Color Swatch Label</span>
+              <div class="copy-grid-title">+ lebih banyak warna</div>
+              <div class="copy-grid-body" style="font-size:12px;">Gunakan "+N warna" bukan "tersedia dalam X pilihan warna".</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF / UGC -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Dipakai di Hari Spesial Mereka</span>
+        <span class="section-context">UGC / TikTok embed. Customer stories yang organik dan tidak dipaksakan.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Section Heading</span>
+          <div class="copy-headline">Dipakai di Hari Spesial Mereka</div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Section Sub-copy</span>
+          <div class="copy-body">
+            <p>Inspirasi dari komunitas kami, untuk kamu yang ingin tampil siap di hari yang paling berarti.</p>
+          </div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">Di bawah setiap video — Caption card</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Format: username · nama produk · harga</span>
+            <div class="inline-copy-text">@namauser</div>
+            <div class="inline-copy-body">Selendang Lurus — Rp 46.345</div>
+          </div>
+        </div>
+        <div class="copy-quote">Biarkan pelanggan yang berbicara. Kamu hanya perlu memastikan nama produk terbaca jelas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRE-CHECKOUT FAQ -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Sebelum Kamu Checkout</span>
+        <span class="section-context">FAQ singkat — mengurangi friksi sebelum transaksi. Tone: helpful, calm, tidak defensif.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Section Heading</span>
+          <div class="copy-headline" style="font-size:1.8rem">Sebelum Kamu Checkout</div>
+          <div class="copy-subhead">Jawaban singkat, dari kami dengan sabar.</div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">FAQ Items</span>
+          <div class="faq-item">
+            <div class="faq-q">Berapa lama waktu pengiriman?</div>
+            <div class="faq-a">Pesanan sebelum jam 16.00 akan dikirim di hari yang sama, bila dilakukan di hari kerja. Namun perlu waktu 1–3 hari sampai ke tanganmu — tergantung lokasi dan jasa pengiriman yang dipilih.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Apakah ukurannya masih bisa?</div>
+            <div class="faq-a">Aku bingung pilih gaya apa.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Apakah ukurannya masih bisa disesuaikan?</div>
+            <div class="faq-a">Sebagian besar produk SECERA dirancang dengan proporsi yang fleksibel. Jika masih ragu, tim kami siap membantu menemukan pilihan yang tepat untuk kamu — cukup hubungi kami sebelum memesan.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Aku bingung pilih gaya yang mana.</div>
+            <div class="faq-a">Ceritakan ocasion-mu, kami akan rekomendasikan. Hubungi kami di WhatsApp — biasanya kami respons dalam beberapa menit di jam kerja.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXCLUSIVE PROMO -->
+  <div class="accent-block">
+    <div style="max-width:700px; margin:0 auto; text-align:center;">
+      <span class="copy-type" style="color:rgba(200,186,165,0.6)">Penawaran Khusus</span>
+      <div class="copy-headline" style="font-size:clamp(2rem,5vw,3.5rem); margin-bottom:1rem;">Penawaran Eksklusif Website</div>
+      <div class="copy-body" style="color:rgba(245,240,232,0.8); max-width:420px; margin:0 auto 2rem; text-align:center;">
+        <p>Dapatkan potongan harga hingga 15% untuk setiap pembelian langsung melalui website kami hari ini.</p>
+      </div>
+      <a href="#" class="copy-cta-alt">Mulai Belanja Sekarang</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Footer</span>
+        <span class="section-context">Tampil di semua halaman. CTA affiliasi + navigasi + info perusahaan.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Affiliasi CTA — kiri footer</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Eyebrow + Heading + Button</span>
+            <div class="inline-copy-text" style="font-size:0.9rem; margin-bottom:0.4rem;">DAPATKAN KOMISI EKSKLUSIF DENGAN BERBAGI KEANGGUNAN</div>
+            <div class="inline-copy-text" style="font-size:1.2rem;">Bergabung sebagai Affiliator SECERA</div>
+            <div class="inline-copy-body" style="margin-top:0.75rem;">Button: <strong>Hubungi WhatsApp ○</strong></div>
+          </div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">Footer Navigation — Kolom Gaya Pilihan</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Header Kolom</span>
+              <span class="micro-copy-val">Gaya Pilihan</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Link 1</span>
+              <span class="micro-copy-val">Modern</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Link 2</span>
+              <span class="micro-copy-val">Etnik</span>
+            </div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Footer Navigation — Kolom Tentang</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Header Kolom</span>
+              <span class="micro-copy-val">Tentang</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Links</span>
+              <span class="micro-copy-val">Tentang Kami · Karir · Persyaratan Layanan · Kebijakan Privasi · Pengiriman dan Pengembalian · Kekayaan Intelektual</span>
+            </div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Footer Navigation — Kolom Perusahaan</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Header Kolom</span>
+              <span class="micro-copy-val">Perusahaan</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Nama Legal</span>
+              <span class="micro-copy-val">PT. SECERA</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Alamat</span>
+              <span class="micro-copy-val">Perum. Bumi Asri Blok U-12, Kalombo, Kota Kediri, Jawa Timur, 64128</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">Email</span>
+              <span class="micro-copy-val">halo@secera.id</span>
+            </div>
+            <div class="micro-copy-item">
+              <span class="micro-copy-key">WA</span>
+              <span class="micro-copy-val">628575000000</span>
+            </div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Copyright Line</span>
+          <div class="inline-copy">
+            <div class="inline-copy-body">©Copyright 2026 Secera</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- ═══ END PAGE 01 ═══ -->
+
+
+<!-- ═══════════════════════════════ PAGE 02: KOLEKSI ═══════════════════════════════ -->
+<div class="page-section" id="koleksi">
+  <div class="page-header">
+    <div class="page-header-left">
+      <span class="page-tag">Halaman 02 dari 04</span>
+      <h1 class="page-title">Koleksi</h1>
+    </div>
+    <span class="page-url">secera.id/koleksi</span>
+  </div>
+
+  <!-- HERO KOLEKSI -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Hero — Halaman Koleksi</span>
+        <span class="section-context">Foto model full-width. Copy mengantar masuk ke produk, bukan mengulang headline beranda.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow</span>
+          <div class="inline-copy">
+            <div class="inline-copy-text">Temukan keanggunan dalam setiap helai pakaian kami, yang dirancang khusus untuk kamu.</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Headline Utama</span>
+          <div class="copy-headline">Untuk hari spesialmu, mulai dari koleksi SECERA.</div>
+          <div class="copy-body">
+            <p><em>Pendek, spesifik, direct. Tidak menjelaskan ulang brand — langsung mengarahkan ke tindakan.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Filter &amp; Kategori</span>
+        <span class="section-context">Copy untuk label filter dan tab kategori. Singkat, functional.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Label Filter Kiri</span>
+          <div class="inline-copy">
+            <div class="inline-copy-text">Pilih Kategori</div>
+            <div class="inline-copy-body">Bukan "Filter" atau "Kategori Produk" — lebih conversational.</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Opsi Kategori (tabs)</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item"><span class="micro-copy-key">All</span><span class="micro-copy-val">Semua</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Acc</span><span class="micro-copy-val">Aksesori</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Hijab</span><span class="micro-copy-val">Hijab</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Kebaya</span><span class="micro-copy-val">Kebaya</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Scarf</span><span class="micro-copy-val">Selendang</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Set</span><span class="micro-copy-val">Set</span></div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Label Filter Kanan</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item"><span class="micro-copy-key">Label</span><span class="micro-copy-val">Pilih Gaya</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">All</span><span class="micro-copy-val">Semua Gaya</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">1</span><span class="micro-copy-val">Etnik</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">2</span><span class="micro-copy-val">Modern</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT GRID COPY -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Grid Produk</span>
+        <span class="section-context">Setiap product card: nama, kategori, harga, warna. Copy deskriptif yang presisi.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Format Nama Produk</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Formula</span>
+            <div class="inline-copy-text">[Tipe Produk] [Varian/Nama] — [Warna jika relevan]</div>
+            <div class="inline-copy-body">Contoh: "Paris Basic" · "Pashmina Shawl" · "Selendang Lurus" · "KALA Kebaya"</div>
+          </div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">Label Kategori (di atas nama produk)</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item"><span class="micro-copy-key">Format</span><span class="micro-copy-val">HIJAB · ETNIK · MODERN · SELENDANG</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Catatan</span><span class="micro-copy-val">Uppercase, 10px, letter-spacing lebar. Tidak perlu semua caps lock di nama produk.</span></div>
+          </div>
+        </div>
+        <hr class="copy-divider">
+        <div class="copy-block">
+          <span class="copy-type">Contoh Card Lengkap</span>
+          <div class="copy-three-col">
+            <div class="copy-three-item">
+              <span class="copy-grid-label">Kategori</span>
+              <div class="copy-grid-title" style="font-size:0.85rem; text-transform:uppercase; letter-spacing:0.15em; font-family:'DM Sans';">HIJAB · ETNIK</div>
+              <div style="height:0.5rem"></div>
+              <span class="copy-grid-label">Nama</span>
+              <div class="copy-grid-title">Paris Basic</div>
+              <div style="height:0.5rem"></div>
+              <span class="copy-grid-label">Harga Coret</span>
+              <div class="copy-grid-body" style="text-decoration:line-through;">Rp 43.000</div>
+              <span class="copy-grid-label" style="margin-top:0.25rem;">Harga Promo</span>
+              <div class="copy-grid-title" style="font-size:1rem;">Rp 39.897</div>
+            </div>
+            <div class="copy-three-item">
+              <span class="copy-grid-label">Kategori</span>
+              <div class="copy-grid-title" style="font-size:0.85rem; text-transform:uppercase; letter-spacing:0.15em; font-family:'DM Sans';">SELENDANG · ETNIK</div>
+              <div style="height:0.5rem"></div>
+              <span class="copy-grid-label">Nama</span>
+              <div class="copy-grid-title">Selendang Malay Pashmina</div>
+              <div style="height:0.5rem"></div>
+              <span class="copy-grid-label">Harga</span>
+              <div class="copy-grid-title" style="font-size:1rem;">Rp 86.899</div>
+              <span class="copy-grid-label" style="margin-top:0.25rem;">Color count</span>
+              <div class="copy-grid-body">+17 warna</div>
+            </div>
+            <div class="copy-three-item">
+              <span class="copy-grid-label">Kategori</span>
+              <div class="copy-grid-title" style="font-size:0.85rem; text-transform:uppercase; letter-spacing:0.15em; font-family:'DM Sans';">KEBAYA · ETNIK</div>
+              <div style="height:0.5rem"></div>
+              <span class="copy-grid-label">Nama</span>
+              <div class="copy-grid-title">KALA Kebaya</div>
+              <div style="height:0.5rem"></div>
+              <span class="copy-grid-label">Harga</span>
+              <div class="copy-grid-title" style="font-size:1rem;">Rp 180.310</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL PAGE — COPY TEMPLATES -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Sub-halaman</span>
+        <span class="section-page-ref">Halaman Detail Produk</span>
+        <span class="section-context">Copy template untuk setiap produk yang diklik. Tiga versi: singkat, medium, panjang.</span>
+      </div>
+      <div class="section-content-col">
+
+        <div class="note-badge">Template — Selendang / Scarf</div>
+
+        <div class="copy-block">
+          <span class="copy-type">Headline Produk (H1)</span>
+          <div class="copy-headline">Selendang Instant Kebaya — Cream.<br><em>Tinggal Pakai, Langsung Terlihat Niat.</em></div>
+        </div>
+
+        <div class="copy-block">
+          <span class="copy-type">Short Description (100–150 kata — untuk card &amp; marketplace)</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Versi singkat — product card</span>
+            <div class="inline-copy-text">Besok kondangan? Bridesmaid call tiba-tiba? Dinner kantor yang lupa dimasukkan ke kalender?</div>
+            <div class="inline-copy-body">SECERA menghadirkan solusi untuk semua itu. Selendang instant yang dirancang supaya tidak ada yang perlu diatur — kain sudah tahu cara jatuh dengan benar, warna sudah cocok dengan hampir semua outfit, desain sudah selesai sebelum kamu memakainya.<br><br>Tinggal pakai. Terlihat seperti sudah niat menyiapkan sejak pagi.</div>
+          </div>
+        </div>
+
+        <div class="copy-block">
+          <span class="copy-type">Product Details — Label Copy</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item"><span class="micro-copy-key">Material</span><span class="micro-copy-val">Soft blend fabric, kualitas premium</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Ukuran</span><span class="micro-copy-val">180cm × 90cm (coverage penuh)</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Occasion</span><span class="micro-copy-val">Kondangan, bridesmaid, acara keluarga, dinner</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Cara Pakai</span><span class="micro-copy-val">Langsung pakai — tidak perlu dipin, tidak perlu diatur</span></div>
+          </div>
+        </div>
+
+        <hr class="copy-divider">
+
+        <div class="note-badge">Template — Kebaya / Set</div>
+
+        <div class="copy-block">
+          <span class="copy-type">Headline Produk (H1)</span>
+          <div class="copy-headline">KALA Kebaya.<br><em>Standar baru dalam keanggunan modern.</em></div>
+        </div>
+
+        <div class="copy-block">
+          <span class="copy-type">Short Description</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Versi singkat</span>
+            <div class="inline-copy-text">Kebaya yang tidak memerlukan justifikasi.</div>
+            <div class="inline-copy-body">KALA dirancang untuk perempuan yang tahu persis apa yang dia mau. Siluet yang berdiri sendiri. Kain yang memilih cara terbaiknya jatuh. Warna yang selalu tepat waktu.<br><br>Cocok untuk kondangan keluarga besar, hari wisuda, gathering formal — semua momen yang membutuhkan rasa siap dan kehadiran yang tidak bisa diabaikan.</div>
+          </div>
+        </div>
+
+        <div class="copy-block">
+          <span class="copy-type">CTA Buttons</span>
+          <div class="micro-copy-row">
+            <div class="micro-copy-item"><span class="micro-copy-key">Primary</span><span class="micro-copy-val">Tambah ke Keranjang</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Secondary</span><span class="micro-copy-val">Pilih Warna &amp; Ukuran</span></div>
+            <div class="micro-copy-item"><span class="micro-copy-key">Wishlist</span><span class="micro-copy-val">Simpan untuk Nanti</span></div>
+          </div>
+        </div>
+
+        <hr class="copy-divider">
+
+        <div class="note-badge">Template — FAQ pada Product Page</div>
+        <div class="copy-block">
+          <span class="copy-type">FAQ Produk — inline di halaman detail</span>
+          <div class="faq-item">
+            <div class="faq-q">Apakah cocok untuk acara formal?</div>
+            <div class="faq-a">Ya. Produk SECERA dirancang untuk berbagai occasion — kondangan, bridesmaid, dinner kantor, arisan keluarga. Warna dan proporsi dipilih untuk terlihat elevated sekaligus tetap nyaman.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Apakah saya perlu skill styling khusus?</div>
+            <div class="faq-a">Tidak sama sekali. Ini adalah inti dari desain SECERA — tinggal pakai, kain sudah tahu cara. Dalam hitungan detik, kamu sudah terlihat siap.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Bagaimana kalau tidak sesuai ekspektasi?</div>
+            <div class="faq-a">Kami ingin kamu benar-benar puas. Return tersedia 30 hari, penukaran ukuran atau warna gratis. Hubungi tim kami — kami bantu dari awal.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMO BLOCK -->
+  <div class="accent-block">
+    <div style="max-width:640px; margin:0 auto; text-align:center;">
+      <span class="copy-type" style="color:rgba(200,186,165,0.6)">Penawaran Khusus</span>
+      <div class="copy-headline" style="font-size:clamp(2rem,5vw,3rem); margin-bottom:1rem;">Penawaran Eksklusif Website</div>
+      <div class="copy-body" style="color:rgba(245,240,232,0.8); max-width:420px; margin:0 auto 2rem; text-align:center;">
+        <p>Dapatkan potongan harga hingga 15% untuk setiap pembelian langsung melalui website kami hari ini.</p>
+      </div>
+      <a href="#" class="copy-cta-alt">Mulai Belanja Sekarang</a>
+    </div>
+  </div>
+
+</div>
+<!-- ═══ END PAGE 02 ═══ -->
+
+
+<!-- ═══════════════════════════════ PAGE 03: TENTANG ═══════════════════════════════ -->
+<div class="page-section" id="tentang">
+  <div class="page-header">
+    <div class="page-header-left">
+      <span class="page-tag">Halaman 03 dari 04</span>
+      <h1 class="page-title">Tentang Kami</h1>
+    </div>
+    <span class="page-url">secera.id/tentang</span>
+  </div>
+
+  <!-- HERO TENTANG -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Hero — Tentang</span>
+        <span class="section-context">Fullscreen photo. Satu kalimat yang cukup untuk mengatakan semuanya.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow</span>
+          <div class="inline-copy">
+            <div class="inline-copy-text">SECERA adalah kolaborasi desainer, pengrajin, dan banyak tangan hebat bergerak dalam satu cita-cita.</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Headline</span>
+          <div class="copy-headline">Tentang Kami</div>
+          <div class="copy-body">
+            <p><em>Sederhana. Tidak perlu tagline di sini — foto dan nama cukup. Halaman ini membiarkan cerita yang bercerita.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSPIRASI KAMI -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Inspirasi Kami — Dua kolom foto &amp; teks</span>
+        <span class="section-context">Panel burgundy dengan teks brand story. Ini adalah momen paling emosional di halaman. Jangan tergesa.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow</span>
+          <div class="inline-copy">
+            <div class="inline-copy-text">Inspirasi Kami</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Headline Utama</span>
+          <div class="copy-headline">Dalam keanggunan yang sederhana, Secera menemukan makna dari kecantikan yang tak lekang oleh waktu.</div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Body — Paragraf 1</span>
+          <div class="copy-body">
+            <p>Kami terinspirasi oleh harmoni alam dan kelembutan material premium. Secera adalah simbol dari kebangkitan gaya yang mengutamakan kenyamanan tanpa mengorbankan estetika.</p>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Body — Paragraf 2</span>
+          <div class="copy-body">
+            <p>Pada akhirnya, kami merancang setiap helai pakaian untuk memberikan rasa percaya diri, ketenangan, dan keindahan bagi setiap perempuan yang mengenakannya.</p>
+          </div>
+        </div>
+        <div class="copy-quote">Keanggunan bukan tentang usaha yang terlihat. Ini tentang kesiapan yang sudah ada sebelum acara dimulai.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISI -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Misi Kami</span>
+        <span class="section-context">Centered text. Bold statement. Ini tempat untuk positioning yang kuat — bukan jargon perusahaan.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow</span>
+          <div class="inline-copy">
+            <div class="inline-copy-text">Misi Kami</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Headline — Pernyataan Misi</span>
+          <div class="copy-headline">Menetapkan <em>standar</em> baru dalam keanggunan gaya etnik dan modern, yang akan selalu dituju saat hari spesial datang.</div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Body</span>
+          <div class="copy-body">
+            <p>Bagi kami, busana bukan akhir. Ini medium untuk menghubungkan manusia, karya, dan masa depan yang lebih baik.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NILAI-NILAI BRAND -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Nilai-Nilai — opsional</span>
+        <span class="section-context">Jika ada section yang menjelaskan cara kerja atau nilai brand, gunakan ini sebagai panduan copy.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Tiga Pilar Brand</span>
+          <div class="value-props">
+            <div class="value-prop">
+              <span class="value-prop-num">01</span>
+              <div class="value-prop-title">Kualitas yang Terasa</div>
+              <div class="value-prop-body">Bukan angka atau sertifikasi — melainkan cara kain jatuh, cara warna bertahan, cara setiap piece bertahan bertahun-tahun.</div>
+            </div>
+            <div class="value-prop">
+              <span class="value-prop-num">02</span>
+              <div class="value-prop-title">Mudah Dipakai</div>
+              <div class="value-prop-body">Dirancang untuk dipakai tanpa drama. Kamu tidak perlu menjadi stylist untuk terlihat seperti sudah menyiapkan sejak pagi.</div>
+            </div>
+            <div class="value-prop">
+              <span class="value-prop-num">03</span>
+              <div class="value-prop-title">Relevan di Setiap Momen</div>
+              <div class="value-prop-body">Dari kondangan mendadak hingga wisuda yang direncanakan berbulan-bulan. Kami ada untuk keduanya.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMO BLOCK -->
+  <div class="accent-block">
+    <div style="max-width:640px; margin:0 auto; text-align:center;">
+      <div class="copy-headline" style="font-size:clamp(2rem,5vw,3.5rem); margin-bottom:1rem;">Penawaran Eksklusif Website</div>
+      <div class="copy-body" style="color:rgba(245,240,232,0.8); max-width:420px; margin:0 auto 2rem; text-align:center;">
+        <p>Dapatkan potongan harga hingga 15% untuk setiap pembelian langsung melalui website kami hari ini.</p>
+      </div>
+      <a href="#" class="copy-cta-alt">Mulai Belanja Sekarang</a>
+    </div>
+  </div>
+
+</div>
+<!-- ═══ END PAGE 03 ═══ -->
+
+
+<!-- ═══════════════════════════════ PAGE 04: KARIR ═══════════════════════════════ -->
+<div class="page-section" id="karir">
+  <div class="page-header">
+    <div class="page-header-left">
+      <span class="page-tag">Halaman 04 dari 04</span>
+      <h1 class="page-title">Karir</h1>
+    </div>
+    <span class="page-url">secera.id/karir</span>
+  </div>
+
+  <!-- HERO KARIR -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Hero — Karir</span>
+        <span class="section-context">Foto tim yang authentic. Bukan foto stock. Copy yang menjanjikan ruang untuk bertumbuh, bukan hanya jabatan.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow</span>
+          <div class="inline-copy">
+            <div class="inline-copy-text">Di sini, talenta kreatif tumbuh bersama. Kita merancang kualitas, kita jaga detail, kita ciptakan dampak.</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Headline</span>
+          <div class="copy-headline">Bergabung dengan SECERA</div>
+          <div class="copy-body">
+            <p><em>Kuat dan terbuka. Tidak oversell — tidak bilang "keluarga besar kami" atau "bergabunglah dalam perjalanan luar biasa". Cukup invitation yang jelas.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENING STATEMENT KARIR -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Karir di SECERA — Pernyataan Pembuka</span>
+        <span class="section-context">Dua kolom: kiri text, kanan daftar lowongan. Copy kiri harus kuat tapi tidak jual terlalu tinggi.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Eyebrow</span>
+          <div class="inline-copy">
+            <div class="inline-copy-text">Karir di SECERA</div>
+          </div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Headline</span>
+          <div class="copy-headline">Tempat bertumbuh untuk orang yang peduli kualitas.</div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Body Copy — 3 poin singkat</span>
+          <div class="copy-body">
+            <p>Di SECERA, kami menjaga standar tinggi — bukan karena tekanan, tapi karena kami percaya setiap detail punya peran.</p>
+            <p>Ini bukan tempat untuk sekadar mengisi waktu. Ini tempat untuk orang yang ingin tumbuh dalam lingkungan yang mengutamakan mutu.</p>
+            <p>Kami percaya bahwa talenta yang tepat, diberi ruang yang tepat, bisa menciptakan sesuatu yang bertahan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOWONGAN TERSEDIA -->
+  <div class="content-block">
+    <div class="section-inner">
+      <div class="section-label-col">
+        <span class="section-name">Section</span>
+        <span class="section-page-ref">Lowongan Tersedia</span>
+        <span class="section-context">Daftar posisi terbuka. Copy untuk setiap card: departemen, nama jabatan, lokasi, tipe pekerjaan, CTA.</span>
+      </div>
+      <div class="section-content-col">
+        <div class="copy-block">
+          <span class="copy-type">Heading</span>
+          <div class="copy-headline" style="font-size:1.6rem; margin-bottom:1.5rem;">Lowongan Tersedia</div>
+        </div>
+        <div class="copy-block">
+          <span class="copy-type">Job Card — Contoh 1</span>
+          <div class="job-card">
+            <div class="job-card-left">
+              <span class="job-dept">Produksi</span>
+              <div class="job-title">Operator Rollbis</div>
+              <div class="job-tags">
+                <span class="job-tag">Kediri</span>
+                <span class="job-tag">Full-time</span>
+              </div>
+            </div>
+            <a href="#" class="job-apply">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="copy-block" style="margin-top:0.75rem">
+          <span class="copy-type">Jika Tidak Ada Lowongan — Empty State</span>
+          <div class="inline-copy">
+            <span class="inline-copy-label">Pesan ketika semua posisi terisi</span>
+            <div class="inline-copy-text">Saat ini belum ada posisi yang tersedia.</div>
+            <div class="inline-copy-body">Tapi kami terus bertumbuh. Jika kamu percaya bisa memberikan kontribusi nyata, kirimkan profilmu ke karir@secera.id — kami selalu senang bertemu orang yang serius.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KENAPA BERKARYA DI SECERA -->
+  <div class="content-block">
+    <div class="dark-block">
+      <div style="max-width:800px;">
+        <span class="copy-type" style="color:var(--taupe);">Tentang Kami sebagai Tempat Kerja</span>
+        <div class="copy-headline" style="font-size:clamp(1.8rem,4vw,3rem); margin-bottom:0.75rem;">Kenapa Berkarya di SECERA</div>
+        <div class="copy-body" style="margin-bottom:2.5rem;">
+          <p>Budaya kerja yang inklusif, kreatif, dan berorientasi pada kualitas tinggi.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:rgba(200,186,165,0.15);">
+          <div style="background:rgba(74,55,40,0.5); padding:2rem;">
+            <span style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--taupe); display:block; margin-bottom:0.5rem;">01</span>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--cream); margin-bottom:0.75rem;">Ruang untuk Berkarya</div>
+            <div style="font-size:13px; color:var(--warm-beige); line-height:1.7;">Idemu didengar. Eksplorasimu dihargai. Kamu punya ruang untuk berkreasi tanpa harus minta izin dua lapis.</div>
+          </div>
+          <div style="background:rgba(74,55,40,0.5); padding:2rem;">
+            <span style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--taupe); display:block; margin-bottom:0.5rem;">02</span>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--cream); margin-bottom:0.75rem;">Tumbuh Bersama</div>
+            <div style="font-size:13px; color:var(--warm-beige); line-height:1.7;">Secera berinvestasi pada pengembangan tim melalui pelatihan, mentoring, dan kesempatan karir yang jelas — bukan janji kosong.</div>
+          </div>
+          <div style="background:rgba(74,55,40,0.5); padding:2rem;">
+            <span style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--taupe); display:block; margin-bottom:0.5rem;">03</span>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--cream); margin-bottom:0.75rem;">Standar Premium</div>
+            <div style="font-size:13px; color:var(--warm-beige); line-height:1.7;">Bergabunglah dengan tim yang tidak pernah berkompromi pada kualitas dan estetika dalam setiap detail pekerjaan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMO BLOCK -->
+  <div class="accent-block">
+    <div style="max-width:640px; margin:0 auto; text-align:center;">
+      <div class="copy-headline" style="font-size:clamp(2rem,5vw,3.5rem); margin-bottom:1rem;">Penawaran Eksklusif Website</div>
+      <div class="copy-body" style="color:rgba(245,240,232,0.8); max-width:420px; margin:0 auto 2rem; text-align:center;">
+        <p>Dapatkan potongan harga hingga 15% untuk setiap pembelian langsung melalui website kami hari ini.</p>
+      </div>
+      <a href="#" class="copy-cta-alt">Mulai Belanja Sekarang</a>
+    </div>
+  </div>
+
+</div>
+<!-- ═══ END PAGE 04 ═══ -->
+
+
+<!-- ══════════════════════════ CLOSING NOTES ══════════════════════════ -->
+<div style="background:var(--charcoal); padding:5rem 4rem; border-top:3px solid var(--espresso);">
+  <div style="max-width:800px;">
+    <p style="font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--taupe); margin-bottom:2rem;">Catatan Akhir</p>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.4rem,3vw,2rem); font-weight:300; color:var(--cream); line-height:1.65; margin-bottom:2.5rem;">
+      Setiap kata di atas ditulis untuk satu tujuan:<br>membuat pembaca merasa bahwa SECERA mengerti mereka —<br>tanpa harus berteriak untuk didengar.
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem;">
+      <div>
+        <p style="font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--taupe); margin-bottom:1rem;">Sebelum Publish — Checklist</p>
+        <div style="display:flex; flex-direction:column; gap:0.65rem;">
+          <div style="font-size:13px; color:var(--warm-beige);">○ Apakah terdengar calm, bukan urgent?</div>
+          <div style="font-size:13px; color:var(--warm-beige);">○ Apakah bicara tentang perasaan, bukan fitur?</div>
+          <div style="font-size:13px; color:var(--warm-beige);">○ Apakah spesifik untuk SECERA, bukan generic?</div>
+          <div style="font-size:13px; color:var(--warm-beige);">○ Apakah kata-kata ini natural diucapkan?</div>
+          <div style="font-size:13px; color:var(--warm-beige);">○ Apakah ada exclamation mark yang tidak perlu?</div>
+          <div style="font-size:13px; color:var(--warm-beige);">○ Apakah kompetitor bisa menulis copy ini juga?</div>
+          <div style="font-size:13px; color:var(--warm-beige);">○ Apakah selaras dengan visual/foto di sekitarnya?</div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--taupe); margin-bottom:1rem;">Vocabulary yang Tidak Boleh Muncul</p>
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">AUTO CANTIK</span>
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">WAJIB PUNYA</span>
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">ANTI GAGAL</span>
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">VIRAL BANGET</span>
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">SUPER MEWAH</span>
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">JANGAN SAMPAI TERLEWAT</span>
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">DISKON GILA</span>
+          <span style="font-size:11px; background:rgba(200,186,165,0.15); color:var(--taupe); padding:3px 10px; text-decoration:line-through;">KECE BADAI</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem; border-top:0.5px solid rgba(200,186,165,0.2); padding-top:2rem; display:flex; justify-content:space-between; align-items:flex-end;">
+      <span style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--taupe);">Versi 1.0 · Mei 2026 · secera.id</span>
+      <span style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:var(--cream); letter-spacing:0.15em;">SECERA</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

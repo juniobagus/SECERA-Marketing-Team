@@ -1,0 +1,470 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --maroon: #722f38;
+    --white: #ffffff;
+    --cream: #f5f0e8;
+    --ivory: #faf7f2;
+    --warm-beige: #ede5d4;
+    --taupe: #c8baa5;
+    --mocha: #8b7355;
+    --espresso: #4a3728;
+    --dusty-pink: #d4b8b0;
+    --muted-sage: #a8b5a0;
+    --muted-mauve: #b8a0a8;
+    --burgundy: #6b2d3e;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ivory);
+    color: var(--espresso);
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .card.dark {
+    background: var(--maroon);
+    color: var(--cream);
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--maroon);
+  }
+  .card.dark .card-title { color: var(--cream); }
+  
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .color-swatch {
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 12px;
+  }
+  .swatch-label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  .swatch-hex {
+    font-family: monospace;
+    font-size: 11px;
+    opacity: 0.8;
+  }
+  
+  .section-header {
+    background: var(--warm-beige);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    grid-column: 1 / -1;
+  }
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+  }
+  .section-subtitle {
+    color: var(--mocha);
+    font-size: 14px;
+  }
+  
+  .logo-demo {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+  }
+  .logo-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    background: var(--maroon);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--cream);
+  }
+  .logo-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--maroon);
+    letter-spacing: 0.1em;
+  }
+  
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .do {
+    background: #e8f5e9;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #4caf50;
+  }
+  .dont {
+    background: #ffebee;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #f44336;
+  }
+  .do-label, .dont-label {
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  .do-label { color: #2e7d32; }
+  .dont-label { color: #c62828; }
+  .do-text, .dont-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .do-text { color: #1b5e20; }
+  .dont-text { color: #b71c1c; }
+  
+  .typography {
+    margin: 1rem 0;
+  }
+  .typo-sample {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--cream);
+    border-radius: 6px;
+  }
+  .typo-serif {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+  }
+  .typo-label {
+    font-size: 11px;
+    color: var(--mocha);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .application {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .app-item {
+    background: var(--cream);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .app-label {
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+  }
+  .app-color {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    margin: 0 auto 0.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  .spacing-guide {
+    background: var(--warm-beige);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  .spacing-item {
+    margin: 1rem 0;
+  }
+  .spacing-label {
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--maroon);
+  }
+  .spacing-bar {
+    background: var(--maroon);
+    height: 20px;
+    border-radius: 2px;
+    margin: 0.5rem 0;
+  }
+  
+  .tip-box {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 13px;
+    margin: 1rem 0;
+  }
+  .tip-label {
+    font-weight: 600;
+    color: #856404;
+  }
+  
+  @media (max-width: 768px) {
+    .container { grid-template-columns: 1fr; }
+    .application { grid-template-columns: 1fr; }
+    .do-dont { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="section-header">
+  <div class="section-title">SECERA</div>
+  <div class="section-subtitle">Visual System Reference Card — Quick Guide for Design, Content & Operations</div>
+</div>
+
+<div class="container">
+
+<!-- LOGO SECTION -->
+<div class="card">
+  <div class="card-title">Logo System</div>
+  <div class="logo-demo">
+    <div class="logo-icon">S</div>
+    <div class="logo-text">SECERA</div>
+    <div style="font-size: 12px; color: var(--mocha); margin-top: 1rem;">Icon + Wordmark (Stacked)</div>
+  </div>
+  <div class="do-dont" style="margin-top: 1.5rem;">
+    <div class="do">
+      <div class="do-label">✓ Do This</div>
+      <div class="do-text">Use full color (maroon + white)<br>Maintain proportions<br>Minimum 40px for mark, 120px for type</div>
+    </div>
+    <div class="dont">
+      <div class="dont-label">✗ Don't Do This</div>
+      <div class="dont-text">Stretch or squeeze<br>Add shadow/gradient<br>Use unauthorized colors</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIMARY COLORS -->
+<div class="card">
+  <div class="card-title">Primary Colors</div>
+  <div class="color-grid">
+    <div class="color-swatch" style="background: var(--maroon); color: white;">
+      <div class="swatch-label">Maroon</div>
+      <div class="swatch-hex">#722F38</div>
+    </div>
+    <div class="color-swatch" style="background: white; border: 1px solid #ddd;">
+      <div class="swatch-label">White</div>
+      <div class="swatch-hex">#FFFFFF</div>
+    </div>
+    <div class="color-swatch" style="background: var(--cream);">
+      <div class="swatch-label">Cream</div>
+      <div class="swatch-hex">#F5F0E8</div>
+    </div>
+    <div class="color-swatch" style="background: var(--warm-beige);">
+      <div class="swatch-label">Warm Beige</div>
+      <div class="swatch-hex">#EDE5D4</div>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">📌 Tip:</div>
+    Background should be Cream/Ivory, NOT pure white. Creates warmer, more premium feel.
+  </div>
+</div>
+
+<!-- SECONDARY COLORS -->
+<div class="card">
+  <div class="card-title">Secondary Colors</div>
+  <p style="font-size: 12px; margin-bottom: 1rem; color: var(--mocha);">Use for product options, accents, bridesmaid sets</p>
+  <div class="color-grid">
+    <div class="color-swatch" style="background: var(--dusty-pink);">
+      <div class="swatch-label">Dusty Pink</div>
+      <div class="swatch-hex">#D4B8B0</div>
+    </div>
+    <div class="color-swatch" style="background: var(--muted-sage);">
+      <div class="swatch-label">Muted Sage</div>
+      <div class="swatch-hex">#A8B5A0</div>
+    </div>
+    <div class="color-swatch" style="background: var(--muted-mauve);">
+      <div class="swatch-label">Muted Mauve</div>
+      <div class="swatch-hex">#B8A0A8</div>
+    </div>
+    <div class="color-swatch" style="background: var(--mocha);">
+      <div class="swatch-label">Mocha</div>
+      <div class="swatch-hex">#8B7355</div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="card">
+  <div class="card-title">Typography</div>
+  <div class="typography">
+    <div class="typo-sample">
+      <div class="typo-serif">Headline Serif</div>
+      <div class="typo-label">Cormorant Garamond, weight 300-400, used for H1/H2</div>
+    </div>
+    <div class="typo-sample">
+      <div style="font-size: 16px; font-weight: 400; color: var(--espresso);">Clean Sans-Serif Body Text</div>
+      <div class="typo-label">DM Sans, weight 400, min 15px size, line-height 1.7</div>
+    </div>
+    <div class="typo-sample">
+      <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--mocha);">Small Label Text</div>
+      <div class="typo-label">Sans-serif, weight 500, for captions & UI labels</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTOGRAPHY STYLE -->
+<div class="card">
+  <div class="card-title">Photography Style</div>
+  <div class="application">
+    <div class="app-item">
+      <div class="app-color" style="background: var(--warm-beige);"></div>
+      <div class="app-label">Warm Beige Background</div>
+    </div>
+    <div class="app-item">
+      <div class="app-color" style="background: linear-gradient(135deg, rgba(114,47,56,0.1) 0%, rgba(218,184,176,0.1) 100%);"></div>
+      <div class="app-label">Soft Diffused Light</div>
+    </div>
+    <div class="app-item">
+      <div class="app-color" style="background: var(--cream);"></div>
+      <div class="app-label">Minimal Props</div>
+    </div>
+  </div>
+  <div class="do-dont">
+    <div class="do">
+      <div class="do-label">✓ Photography</div>
+      <div class="do-text">Studio setup<br>Soft, diffused light<br>Fabric drape visible<br>Warm tones<br>Minimal editing</div>
+    </div>
+    <div class="dont">
+      <div class="dont-label">✗ Avoid</div>
+      <div class="dont-text">Harsh shadows<br>Pure white background<br>Over-edited beauty filter<br>Cold/blue tones<br>Marketplace clutter</div>
+    </div>
+  </div>
+</div>
+
+<!-- COLOR APPLICATION BY TOUCHPOINT -->
+<div class="card">
+  <div class="card-title">Color Application</div>
+  <div class="spacing-guide">
+    <div class="spacing-item">
+      <div class="spacing-label">🌐 WEBSITE HEADER/FOOTER</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+        <div style="background: var(--maroon); color: white; padding: 10px; border-radius: 4px; font-size: 11px; text-align: center;">Background: Maroon</div>
+        <div style="background: var(--cream); color: var(--maroon); padding: 10px; border-radius: 4px; font-size: 11px; text-align: center;">Text: Cream</div>
+      </div>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-label">📄 WEBSITE MAIN CONTENT</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+        <div style="background: var(--cream); color: var(--espresso); padding: 10px; border-radius: 4px; font-size: 11px; text-align: center;">Background: Cream</div>
+        <div style="background: var(--maroon); color: white; padding: 10px; border-radius: 4px; font-size: 11px; text-align: center;">Accent: Maroon</div>
+      </div>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-label">📦 PACKAGING</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+        <div style="background: var(--warm-beige); color: var(--maroon); padding: 10px; border-radius: 4px; font-size: 11px; text-align: center;">Box: Warm Beige</div>
+        <div style="background: var(--maroon); color: white; padding: 10px; border-radius: 4px; font-size: 11px; text-align: center;">Logo Label: Maroon</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPACING GUIDELINES -->
+<div class="card">
+  <div class="card-title">Spacing & Layout</div>
+  <div class="spacing-guide">
+    <div class="spacing-item">
+      <div class="spacing-label">Top/Bottom Margin</div>
+      <div style="background: white; height: 40px; border-radius: 2px;"></div>
+      <div style="font-size: 11px; color: var(--maroon); margin-top: 4px;">40px minimum between sections</div>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-label">Card Padding</div>
+      <div style="background: white; height: 30px; border-radius: 2px;"></div>
+      <div style="font-size: 11px; color: var(--maroon); margin-top: 4px;">16px+ inside cards for comfort</div>
+    </div>
+    <div class="spacing-item">
+      <div class="spacing-label">Line Height (Body Text)</div>
+      <div style="background: var(--cream); padding: 8px; border-radius: 2px;">
+        <div style="line-height: 1.7; font-size: 13px;">This is example body text with<br>1.7 line height for readability</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK RULES -->
+<div class="card dark" style="grid-column: 1 / -1;">
+  <div class="card-title" style="text-align: center;">🎯 QUICK RULES TO REMEMBER</div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+    <div>
+      <h4 style="font-size: 14px; margin-bottom: 1rem; color: var(--dusty-pink);">CALMNESS OVER URGENCY</h4>
+      <ul style="font-size: 13px; line-height: 1.8; list-style: none;">
+        <li>✓ Soft tones, generous spacing</li>
+        <li>✓ Editorial tone, not sales-y</li>
+        <li>✗ Bright colors, crowded layouts</li>
+        <li>✗ "BUY NOW" energy</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 14px; margin-bottom: 1rem; color: var(--dusty-pink);">LESS IS MORE</h4>
+      <ul style="font-size: 13px; line-height: 1.8; list-style: none;">
+        <li>✓ One focal point per layout</li>
+        <li>✓ Minimal props & styling</li>
+        <li>✗ Clutter, decorations, badges</li>
+        <li>✗ Multiple competing messages</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 14px; margin-bottom: 1rem; color: var(--dusty-pink);">PREMIUM ALWAYS</h4>
+      <ul style="font-size: 13px; line-height: 1.8; list-style: none;">
+        <li>✓ Maroon + warm neutrals</li>
+        <li>✓ Clean, minimalist layouts</li>
+        <li>✗ Gold foil, glitter effects</li>
+        <li>✗ Marketplace aesthetic</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 14px; margin-bottom: 1rem; color: var(--dusty-pink);">CONSISTENCY WINS</h4>
+      <ul style="font-size: 13px; line-height: 1.8; list-style: none;">
+        <li>✓ Same colors, same fonts, always</li>
+        <li>✓ Logo rules, size, spacing</li>
+        <li>✗ One-off designs, random colors</li>
+        <li>✗ "Just this once" exceptions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL SECTION -->
+<div class="section-header" style="margin-top: 2rem;">
+  <div style="font-size: 14px; color: var(--espresso); line-height: 1.8;">
+    <strong>When in doubt, ask:</strong> Does this feel calm? Does this look premium? Is this consistent with other SECERA touchpoints?<br>
+    <strong>If yes to all three → Go ahead.</strong> If no → Redesign.
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

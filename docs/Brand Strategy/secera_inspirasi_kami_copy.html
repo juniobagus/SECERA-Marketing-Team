@@ -1,0 +1,327 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+.sec-wrap {
+  font-family: 'DM Sans', sans-serif;
+  background: #FAF7F2;
+  color: #2C2825;
+}
+
+.sec-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #9B8B7A;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.sec-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.sec-divider {
+  border: none;
+  border-top: 0.5px solid rgba(44,40,37,0.1);
+  margin: 2.5rem 0;
+}
+
+.sec-label-pill {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  background: #EDE5D4;
+  color: #8B7355;
+  padding: 3px 12px;
+  margin-bottom: 1.5rem;
+}
+
+.copy-anno {
+  font-size: 11px;
+  color: #9B8B7A;
+  font-style: italic;
+  line-height: 1.6;
+  border-left: 2px solid #D4B8B0;
+  padding-left: 1rem;
+  margin-top: 0.75rem;
+  border-radius: 0;
+}
+
+.section-box {
+  border: 0.5px solid rgba(44,40,37,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.section-box-header {
+  background: #4A3728;
+  color: #F5F0E8;
+  padding: 0.6rem 1.25rem;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-box-header span {
+  color: #C8BAA5;
+}
+
+.section-box-body {
+  padding: 1.75rem 1.75rem 2rem;
+  background: #FFFFFF;
+}
+
+.headline-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #4A3728;
+}
+
+.body-copy {
+  font-size: 14px;
+  color: #6B5D4F;
+  line-height: 1.85;
+}
+
+.body-copy p { margin-bottom: 0.85rem; }
+.body-copy p:last-child { margin-bottom: 0; }
+
+.quote-pull {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #4A3728;
+  border-left: 2px solid #7C2D3E;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  line-height: 1.6;
+  border-radius: 0;
+  margin: 1.5rem 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 0.5px solid rgba(44,40,37,0.08);
+  align-items: start;
+}
+
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #C8BAA5;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.timeline-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4A3728;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-desc {
+  font-size: 13px;
+  color: #6B5D4F;
+  line-height: 1.7;
+}
+
+.cta-underline {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4A3728;
+  border-bottom: 0.5px solid #4A3728;
+  padding-bottom: 2px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.burgundy-block {
+  background: #7C2D3E;
+  color: #F5F0E8;
+  padding: 2rem 1.75rem;
+  margin: 1.5rem 0;
+}
+
+.burgundy-block .body-copy { color: rgba(245,240,232,0.85); }
+.burgundy-block .headline-display { color: #F5F0E8; }
+.burgundy-block .sec-eyebrow { color: rgba(200,186,165,0.7); }
+</style>
+
+<div class="sec-wrap" style="padding: 1.5rem 0.5rem;">
+
+  <div class="sec-label-pill">Panduan Copy — Halaman Tentang Kami</div>
+  <p style="font-size:13px; color:#9B8B7A; margin-bottom:2rem; line-height:1.7;">Section: <strong style="color:#4A3728;">Inspirasi Kami</strong> — dengan konteks sejarah, warisan pendahulu, dan makna selendang sebagai simbol keanggunan perempuan Indonesia.</p>
+
+  <hr class="sec-divider" style="margin-top:0;">
+
+  <!-- ── SECTION A: EYEBROW + HEADLINE ── -->
+  <div class="section-box">
+    <div class="section-box-header">
+      A — Eyebrow &amp; Headline Utama <span>Di atas lipatan · teks kecil + heading besar</span>
+    </div>
+    <div class="section-box-body">
+      <span class="sec-eyebrow">Dari mana kami belajar</span>
+
+      <div class="headline-display" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.25rem;">
+        Keanggunan yang tidak pernah diam.<br>
+        <em style="color:#8B7355;">Selalu bergerak. Selalu bermakna.</em>
+      </div>
+
+      <div class="body-copy">
+        <p>Sebelum ada label fashion, sebelum ada kata "occasion wear" — ada perempuan-perempuan yang sudah tahu: cara berpakaian adalah cara berbicara.</p>
+        <p>SECERA terinspirasi dari mereka.</p>
+      </div>
+
+      <div class="copy-anno">Tone: calm, bukan heroik berlebihan. Kalimat pendek yang berat di maknanya — bukan deskripsi panjang yang kehilangan napas di tengah.</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION B: MANIFESTO PARAGRAF ── -->
+  <div class="section-box">
+    <div class="section-box-header">
+      B — Body Copy Manifesto <span>Paragraf utama · max 3 paragraf · format dua kolom atau centered</span>
+    </div>
+    <div class="section-box-body">
+      <div class="quote-pull">
+        "Setiap kain yang dikenakan adalah pilihan.<br>
+        Setiap pilihan adalah pernyataan."
+      </div>
+
+      <div class="body-copy" style="margin-top:1.25rem;">
+        <p>R.A. Kartini tidak memilih pakaian untuk terlihat cantik. Ia memilih pakaian sebagai bahasa — untuk berbicara tentang harga diri, tentang kesetaraan, tentang kehadiran yang tidak bisa diabaikan.</p>
+        <p>Begitu pula Cut Nyak Dhien, Raden Ajeng Kartini, Christina Martha Tiahahu, dan ribuan perempuan hebat yang datang sebelum kita. Mereka hadir dalam momen-momen paling berat sejarah — bukan dengan kekerasan, tapi dengan kehadiran penuh. Tegak. Tenang. Berselendang.</p>
+        <p>Selendang bukan aksesori. Ia adalah pernyataan. Ia telah ada di bahu perempuan-perempuan yang mengubah dunia — jauh sebelum kamera ada untuk mengabadikannya.</p>
+      </div>
+
+      <div class="copy-anno">Catatan: Sebutkan nama nyata dengan hati-hati dan presisi. Tidak perlu dramatis — biarkan bobot nama itu sendiri yang berbicara. Jangan klaim terlalu banyak.</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION C: TIMELINE / HERITAGE ── -->
+  <div class="section-box">
+    <div class="section-box-header">
+      C — Heritage Timeline <span>Visual section · foto hitam putih + teks · bisa diformat vertikal atau horizontal scroll</span>
+    </div>
+    <div class="section-box-body">
+      <span class="sec-eyebrow">Mereka yang datang lebih dulu</span>
+      <div class="headline-display" style="font-size: 1.5rem; margin-bottom: 1.5rem;">
+        Para perempuan yang mengajarkan kami arti dari keanggunan yang berani.
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1879</div>
+        <div>
+          <div class="timeline-name">R.A. Kartini</div>
+          <div class="timeline-desc">Hadir dalam balutan kebaya dan selendang panjang, menulis surat-surat yang membakar pikiran. Bukan dengan suara keras — melainkan dengan kata-kata yang terukur, dan kehadiran yang tidak bisa disangkal.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1848</div>
+        <div>
+          <div class="timeline-name">Cut Nyak Dhien</div>
+          <div class="timeline-desc">Berselendang di medan yang tidak mengenal kompromi. Pakaiannya adalah identitas — pengingat bahwa ia bukan hanya istri seorang pejuang, tapi pejuang itu sendiri.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1800</div>
+        <div>
+          <div class="timeline-name">Christina Martha Tiahahu</div>
+          <div class="timeline-desc">Perempuan termuda yang berdiri di garis terdepan. Dalam kesederhanaan pakaiannya tersimpan ketegasan yang tidak pernah goyah — bahkan saat dunia memintanya untuk diam.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Kini</div>
+        <div>
+          <div class="timeline-name">Kamu</div>
+          <div class="timeline-desc">Konteksmu berbeda. Kondanganmu bukan medan perang. Tapi selendang yang kamu kenakan hari ini membawa garis panjang yang sama — dari perempuan yang memilih hadir dengan penuh, bukan sekadar ada.</div>
+        </div>
+      </div>
+
+      <div class="copy-anno">Format timeline ini bisa divisualisasikan sebagai vertical scroll dengan foto arsip (hitam putih) di sebelah kiri dan teks di kanan. Entry terakhir "Kini" adalah transisi paling penting — dari sejarah ke relevansi personal.</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION D: SELENDANG AS SYMBOL ── -->
+  <div class="section-box">
+    <div class="section-box-header">
+      D — Narasi Produk sebagai Simbol <span>Teks + foto close-up selendang · centered atau split layout</span>
+    </div>
+    <div class="section-box-body">
+      <span class="sec-eyebrow">Tentang selendang</span>
+
+      <div class="headline-display" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1.25rem;">
+        Selendang bukan pelengkap.<br>
+        <em style="color:#8B7355;">Ia selalu menjadi bagian dari pernyataan.</em>
+      </div>
+
+      <div class="body-copy">
+        <p>Ribuan tahun sebelum SECERA ada, perempuan Nusantara sudah mengerti sesuatu yang tidak perlu diajarkan: bahwa cara kain jatuh di bahu adalah cara kita mengatakan kepada dunia — <em>aku hadir, aku siap, aku tidak perlu membuktikan apa pun.</em></p>
+        <p>Selendang melintas batas. Dari wanita istana Jawa yang berselendang batik tulis, ke perempuan Minang yang melilitkan songket di perhelatan adat, ke perempuan modern hari ini yang meraih selendangnya lima menit sebelum kondangan dimulai.</p>
+        <p>Bentuknya berubah. Maknanya tidak.</p>
+        <p>Inilah yang SECERA pegang: keanggunan bukan tentang kerumitan. Ia tentang ketepatan. Satu helai yang sudah tahu cara jatuh di tubuhmu — itu warisan panjang yang kami tuangkan ke dalam setiap jahitan.</p>
+      </div>
+
+      <div class="quote-pull">
+        Dari perempuan yang mengubah sejarah, hingga kamu yang ingin tampil siap untuk momen yang berarti — selendang selalu ada di antaranya.
+      </div>
+
+      <div class="copy-anno">Ini adalah jembatan antara heritage story dan product relevance. Jangan langsung loncat ke "beli sekarang" — biarkan makna mengendap dulu, lalu CTA datang secara natural.</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION E: DARK CLOSING BLOCK ── -->
+  <div class="section-box">
+    <div class="section-box-header">
+      E — Penutup Section · Panel Gelap <span>Background espresso/burgundy · centered text · CTA ke koleksi</span>
+    </div>
+    <div class="section-box-body" style="padding:0;">
+      <div class="burgundy-block">
+        <span class="sec-eyebrow">Warisan yang kami lanjutkan</span>
+        <div class="headline-display" style="font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1rem;">
+          SECERA merancang setiap helai dengan satu pertanyaan dalam pikiran:<br>
+          <em>apakah perempuan-perempuan sebelum kita akan bangga memakainya?</em>
+        </div>
+        <div class="body-copy" style="color:rgba(245,240,232,0.8); margin-bottom:1.5rem;">
+          <p>Bukan hanya cantik. Bukan hanya nyaman. Tapi layak untuk momen yang benar-benar berarti.</p>
+        </div>
+        <a href="#" class="cta-underline" style="color:#F5F0E8; border-color:#F5F0E8;">Lihat Koleksi SECERA →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NOTES ── -->
+  <hr class="sec-divider">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-lg); padding:1.25rem 1.5rem;">
+      <div style="font-size:11px; font-weight:500; color:var(--color-text-primary); margin-bottom:0.75rem;">Panduan Tone untuk Section Ini</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.75;">
+        Bicara tentang para pendahulu dengan rasa hormat — bukan eksploitasi nama. Tidak berlebihan atau dramatis. Kalimat pendek lebih kuat dari kalimat panjang. Transisi dari sejarah ke produk harus terasa natural, bukan mendadak.
+      </div>
+    </div>
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-lg); padding:1.25rem 1.5rem;">
+      <div style="font-size:11px; font-weight:500; color:var(--color-text-primary); margin-bottom:0.75rem;">Visual yang Disarankan</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.75;">
+        Foto arsip hitam putih para tokoh (domain publik) dipasangkan dengan foto produk modern. Kontras visual ini memperkuat narasi lintas zaman tanpa perlu banyak kata tambahan.
+      </div>
+    </div>
+  </div>
+
+</div>
